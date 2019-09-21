@@ -1,7 +1,17 @@
 body {
-  font-family: Helvetica;
+  margin:0;
+  padding:0;
 }
+
+svg {
+  // border: 1px solid blue;
+}
+
 .app {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.svg-body{
+  margin: 0 15% 0 15%;
 }
