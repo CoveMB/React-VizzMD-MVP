@@ -1,5 +1,5 @@
 @import "scale";
-
+@import "table";
 
 body {
   margin:0;
@@ -14,7 +14,6 @@ body {
 .svg-body{
   margin: 0 15% 0 0;
   width: 85%;
-  border: 1px solid red;
 }
 
 .scale-body{
@@ -22,13 +21,32 @@ body {
   display: flex;
 }
 
-.bottom-actions{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 15px;
-}
-
 .top-actions{
   display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  height: 50px;
 }
+
+.patient-ref{
+  height: 20px;
+  padding: 10px 0 0 10px;
+}
+
+.body-select{
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-pop-up-ok{
+  margin: 12px  0 3px 0;
+  width: 100px;
+  text-align: center;
+}
+
+.btn-pop-up-review{
+  margin-left: 100px;
+  width: 300px;
+  text-align: center;
+};

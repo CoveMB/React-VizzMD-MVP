@@ -24,7 +24,6 @@ class PatientPopUp extends PureComponent {
   }
 
   handleChange = (event) => {
-    console.log(this.patientRefInput);
     this.setState({ patient: event.target.value });
   }
 
@@ -38,7 +37,7 @@ class PatientPopUp extends PureComponent {
     return (
       <Popup
         trigger={
-          <button onClick={this.openModal}>Change patient ref</button>
+          <button className="btn btn-secondary" onClick={this.openModal}>Change patient ref</button>
         }
         modal
         position="right center"
@@ -48,6 +47,7 @@ class PatientPopUp extends PureComponent {
         <form onSubmit={this.handleSubmit} >
           <h3>Quel est la référence du patient?</h3>
           <input
+            className="form-control"
             type="text"
             id="ref"
             name="ref"
@@ -56,7 +56,7 @@ class PatientPopUp extends PureComponent {
             value={this.state.patient}
             onChange={this.handleChange}
           />
-          <button type="submit">Ok</button>
+          <button className="btn btn-secondary btn-pop-up-ok float-right" type="submit">Ok</button>
         </form>
 
       </Popup>

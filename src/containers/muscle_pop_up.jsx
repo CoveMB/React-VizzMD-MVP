@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 
 import { selectMuscle } from '../actions/index';
+import { changeMuscleForce } from '../actions/index';
 
 class MusclePopUp extends PureComponent {
   closeModal = () => {
-    // this.setState({ open: false });
     this.props.selectMuscle(null);
   }
 
@@ -20,7 +20,11 @@ class MusclePopUp extends PureComponent {
 
   handleForceOnMuscle = (event) => {
     event.preventDefault();
-    // send new force to muscle !!!! duplicate muscle object for shwallow comparaison
+    this.props.changeMuscleForce(
+      event.target.innerText,
+      this.props.selectedMuscle,
+      this.props.muscles
+    );
     this.props.selectMuscle(null);
   }
 
@@ -37,10 +41,8 @@ class MusclePopUp extends PureComponent {
           <button onClick={this.handleForceOnMuscle} className="one-force">1</button>
           <button onClick={this.handleForceOnMuscle} className="two-force">2</button>
           <button onClick={this.handleForceOnMuscle} className="three-force">3</button>
-          <button onClick={this.handleForceOnMuscle}className="three-force">3</button>
-          <button className="four-force">4</button>
-          <button onClick={this.handleForceOnMuscle}className="three-force">3</button>
-          <button className="five-force">5</button>
+          <button onClick={this.handleForceOnMuscle} className="four-force">4</button>
+          <button onClick={this.handleForceOnMuscle} className="five-force">5</button>
         </div>
       </Popup>
     );
@@ -49,13 +51,14 @@ class MusclePopUp extends PureComponent {
 
 function mapStateToProps(state) {
   return {
-    selectedMuscle: state.selectedMuscle
+    selectedMuscle: state.selectedMuscle,
+    muscles: state.muscles
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { selectMuscle },
+    { selectMuscle, changeMuscleForce },
     dispatch
   );
 }

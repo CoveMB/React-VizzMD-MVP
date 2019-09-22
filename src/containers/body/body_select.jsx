@@ -1,24 +1,25 @@
 import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PatientRef from '../patient_ref';
 
-import { flipBody } from '../actions/index';
+import { flipBody } from '../../actions/index';
 
 class BodySelect extends PureComponent {
   handleBodyFlip = (event) => {
-    if (event.target.innerText === "Back") {
+    if (event.target.innerText === "Arrière") {
       this.props.flipBody("back");
     }
-    if (event.target.innerText === "Face") {
+    if (event.target.innerText === "Avant") {
       this.props.flipBody("face");
     }
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.handleBodyFlip}>Face</button>
-        <button onClick={this.handleBodyFlip}>Back</button>
+      <div className="body-select">
+        <button className="btn btn-secondary" onClick={this.handleBodyFlip}>Avant</button>
+        <button className="btn btn-secondary" onClick={this.handleBodyFlip}>Arrière</button>
       </div>
     );
   }

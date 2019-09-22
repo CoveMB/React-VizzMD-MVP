@@ -1,10 +1,10 @@
-export default function(state = null, action) {
+export default function(state = "face", action) {
   switch (action.type) {
     case 'FLIP_BODY': {
       return action.payload;
     }
     default: {
-      return "face";
+      return state;
     }
   }
 }

@@ -1,5 +1,3 @@
-import muscles from '../../data/muscles';
-
 export function enterPatient(patient) {
   return {
     type: 'PATIENT_ENTERED',
@@ -21,10 +19,27 @@ export function selectMuscle(muscleName) {
   };
 }
 
-export function enterMuscleForce() {
-  // loop throught muscles to change force with arguments
+export function changeMuscleForce(force, muscleInfo, musclesState) {
+  const [name, side] = muscleInfo.split("-");
+
+  const newMuscles = musclesState.map((muscleObj) => {
+    if (muscleObj.name === name) {
+      if (side === "left") {
+        const newMuscleObj = Object.assign({}, muscleObj);
+        newMuscleObj.leftForce = Number(force);
+        return newMuscleObj;
+      }
+      if (side === "right") {
+        const newMuscleObj = Object.assign({}, muscleObj);
+        newMuscleObj.rightForce = Number(force);
+        return newMuscleObj;
+      }
+    }
+    return muscleObj;
+  });
+
   return {
-    type: 'MUSCLE_FORCE_ENTERED',
-    payload: muscles
+    type: 'MUSCLE_FORCE_CHANGED',
+    payload: newMuscles
   };
 }
