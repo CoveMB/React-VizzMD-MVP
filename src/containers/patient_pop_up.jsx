@@ -5,10 +5,10 @@ import Popup from "reactjs-popup";
 
 import { enterPatient } from '../actions/index';
 
-class CustomPopUp extends PureComponent {
+class PatientPopUp extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = { patient: '', open: true };
+    this.state = { patient: '', open: false };
   }
 
   componentDidMount() {
@@ -24,6 +24,7 @@ class CustomPopUp extends PureComponent {
   }
 
   handleChange = (event) => {
+    console.log(this.patientRefInput);
     this.setState({ patient: event.target.value });
   }
 
@@ -70,4 +71,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(null, mapDispatchToProps)(CustomPopUp);
+export default connect(null, mapDispatchToProps)(PatientPopUp);

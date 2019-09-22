@@ -14,7 +14,7 @@ class Body extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="svg-body">
         {this.bodyParts()}
       </div>
     );

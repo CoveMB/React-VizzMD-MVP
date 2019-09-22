@@ -1,10 +1,10 @@
 export default function(state = null, action) {
   switch (action.type) {
-    case 'FLIP_BODY': {
+    case 'MUSCLE_SELECTED': {
       return action.payload;
     }
     default: {
-      return "face";
+      return state;
     }
   }
 }

@@ -7,31 +7,17 @@ export function enterPatient(patient) {
   };
 }
 
-export function setBodyFace() {
+export function flipBody(face) {
   return {
-    type: 'SET_BODY_FACE',
-    payload: "face"
+    type: 'FLIP_BODY',
+    payload: face
   };
 }
 
-export function setBodyBack() {
+export function selectMuscle(muscleName) {
   return {
-    type: 'SET_BODY_BACK',
-    payload: "back"
-  };
-}
-
-export function setMuscles() {
-  return {
-    type: 'SET_MUSCLE',
-    payload: muscles
-  };
-}
-
-export function resetMuscles() {
-  return {
-    type: 'SET_MUSCLE',
-    payload: muscles
+    type: 'MUSCLE_SELECTED',
+    payload: muscleName
   };
 }
 
