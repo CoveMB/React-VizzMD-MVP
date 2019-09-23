@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import PatientRef from '../patient_ref';
 
 import { flipBody } from '../../actions/index';
 

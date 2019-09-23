@@ -25,14 +25,16 @@ export function changeMuscleForce(force, muscleInfo, musclesState) {
   const newMuscles = musclesState.map((muscleObj) => {
     if (muscleObj.name === name) {
       if (side === "left") {
-        const newMuscleObj = Object.assign({}, muscleObj);
-        newMuscleObj.leftForce = Number(force);
-        return newMuscleObj;
+        return {
+          ...muscleObj,
+          leftForce: Number(force)
+        };
       }
       if (side === "right") {
-        const newMuscleObj = Object.assign({}, muscleObj);
-        newMuscleObj.rightForce = Number(force);
-        return newMuscleObj;
+        return {
+          ...muscleObj,
+          rightForce: Number(force)
+        };
       }
     }
     return muscleObj;
