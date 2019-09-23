@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import TableRow from '../components/table_row';
+import TableRow from './table_row';
 
 class MusclesTabe extends PureComponent {
   buildTable = () => {
     return this.props.muscles.map((muscleObj) => {
       return (
         <TableRow
+          rightMuscleId={`${muscleObj.name}-right`}
+          leftMuscleId={`${muscleObj.name}-left`}
           name={muscleObj.name}
           rightForce={muscleObj.rightForce}
           nerf={muscleObj.nerf}

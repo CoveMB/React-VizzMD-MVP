@@ -11,6 +11,28 @@ body {
   margin-bottom: 20px;
 }
 
+i {
+  border: solid white;
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 0 5px 4.5px 25px;
+}
+
+.btn{
+  border-radius: 2;
+}
+
+.btn-force{
+  border-radius: 0;
+  width: 100%;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 .svg-body{
   margin: 0 15% 0 0;
   width: 85%;

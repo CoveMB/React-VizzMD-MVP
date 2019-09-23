@@ -8,7 +8,7 @@ const muscles = [
   { name: 'Triceps', nerf: 'Radial', root: 'C7', rightForce: 0, leftForce: 0 },
   { name: 'PT', nerf: 'Median', root: 'C6-7', rightForce: 0, leftForce: 0 },
   { name: 'Supi', nerf: 'Radial', root: 'C5-6', rightForce: 0, leftForce: 0 },
-  { name: 'ECRL/B', nerf: 'Radial', root: 'C6', rightForce: 0, leftForce: 0 },
+  { name: 'ECRL(B)', nerf: 'Radial', root: 'C6', rightForce: 0, leftForce: 0 },
   { name: 'FCR', nerf: 'Median', root: 'C7', rightForce: 0, leftForce: 0 },
   { name: 'FDP', nerf: 'Med+Ulnar', root: 'C8', rightForce: 0, leftForce: 0 },
   { name: 'EDC', nerf: 'Radial', root: 'C7', rightForce: 0, leftForce: 0 },
