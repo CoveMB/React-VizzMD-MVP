@@ -14,28 +14,27 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
   ],
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'async',
-      minSize: 30000,
-      maxSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
-      automaticNameMaxLength: 30,
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      maxSize: 28000,
       name: true,
       cacheGroups: {
-        vendors: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`;
+          },
         },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
+      },
+    },
   },
   devtool: 'sourcemap',
   module: {
