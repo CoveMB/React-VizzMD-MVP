@@ -19,7 +19,7 @@ module.exports = {
       chunks: 'all',
       maxInitialRequests: Infinity,
       minSize: 0,
-      maxSize: 28000,
+      maxSize: 244000,
       name: true,
       cacheGroups: {
         vendor: {
