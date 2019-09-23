@@ -10,14 +10,39 @@ class TableRow extends PureComponent {
     this.props.selectMuscle(event.target.getAttribute('id'));
   }
 
+  btnForceClass = (force) => {
+    const classes = "btn btn-secondary btn-force";
+    switch (force) {
+      case 1: {
+        return `${classes} one-force`;
+      }
+      case 2: {
+        return `${classes} two-force`;
+      }
+      case 3: {
+        return `${classes} three-force`;
+      }
+      case 4: {
+        return `${classes} four-force`;
+      }
+      case 5: {
+        return `${classes} five-force`;
+      }
+      default: {
+        return classes;
+      }
+    }
+  }
+
   render() {
+    const { name, nerf, root, rightForce, rightMuscleId, leftForce, leftMuscleId } = this.props;
     return (
       <tr >
-        <td><button className="btn btn-secondary btn-force" id={this.props.rightMuscleId} onClick={this.handleClickMuscle}>{this.props.rightForce}<i className="arrow down" /></button></td>
-        <td>{this.props.name}</td>
-        <td>{this.props.nerf}</td>
-        <td>{this.props.root}</td>
-        <td><button className="btn btn-secondary btn-force" id={this.props.leftMuscleId} onClick={this.handleClickMuscle}>{this.props.leftForce}<i className="arrow down" /></button></td>
+        <td><button className={this.btnForceClass(rightForce)} id={rightMuscleId} onClick={this.handleClickMuscle}>{rightForce}<i className="arrow down" /></button></td>
+        <td>{name}</td>
+        <td>{nerf}</td>
+        <td>{root}</td>
+        <td><button className={this.btnForceClass(leftForce)} id={leftMuscleId} onClick={this.handleClickMuscle}>{leftForce}<i className="arrow down" /></button></td>
       </tr>
     );
   }

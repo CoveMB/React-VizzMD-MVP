@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 
-import { selectMuscle } from '../actions/index';
-import { changeMuscleForce } from '../actions/index';
+import { selectMuscle, changeMuscleForce } from '../actions/index';
+
 
 class MusclePopUp extends PureComponent {
   closeModal = () => {

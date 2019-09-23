@@ -12,8 +12,8 @@ body {
 }
 
 i {
-  border: solid white;
-  border-width: 0 1.5px 1.5px 0;
+  border: solid black;
+  border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
   margin: 0 5px 4.5px 25px;
@@ -26,6 +26,8 @@ i {
 .btn-force{
   border-radius: 0;
   width: 100%;
+  border: none;
+  font-weight: bold;
 }
 
 .down {
