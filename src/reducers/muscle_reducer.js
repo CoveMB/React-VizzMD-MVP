@@ -1,8 +1,8 @@
-import * as actionsType from '../actions/actions';
+import { MUSCLE_SELECTED } from '../actions/actionsTypes';
 
 export default function(state = null, action) {
   switch (action.type) {
-    case actionsType.MUSCLE_SELECTED: {
+    case MUSCLE_SELECTED: {
       return action.payload;
     }
     default: {
