@@ -37,7 +37,7 @@ class PatientPopUp extends PureComponent {
     return (
       <Popup
         trigger={
-          <button className="btn btn-secondary" onClick={this.openModal}>Change patient ref</button>
+          <button className="btn btn-secondary" onClick={this.openModal}>Changer la référence</button>
         }
         modal
         position="right center"

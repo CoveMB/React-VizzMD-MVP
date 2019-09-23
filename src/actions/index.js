@@ -1,20 +1,22 @@
+import * as actionsType from './actions';
+
 export function enterPatient(patient) {
   return {
-    type: 'PATIENT_ENTERED',
+    type: actionsType.PATIENT_ENTERED,
     payload: patient
   };
 }
 
 export function flipBody(face) {
   return {
-    type: 'FLIP_BODY',
+    type: actionsType.FLIP_BODY,
     payload: face
   };
 }
 
 export function selectMuscle(muscleName) {
   return {
-    type: 'MUSCLE_SELECTED',
+    type: actionsType.MUSCLE_SELECTED,
     payload: muscleName
   };
 }
@@ -41,7 +43,7 @@ export function changeMuscleForce(force, muscleInfo, musclesState) {
   });
 
   return {
-    type: 'MUSCLE_FORCE_CHANGED',
+    type: actionsType.MUSCLE_FORCE_CHANGED,
     payload: newMuscles
   };
 }
