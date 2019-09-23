@@ -18,7 +18,7 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       maxInitialRequests: Infinity,
-      minSize: 0,
+      minSize: 30000,
       maxSize: 244000,
       name: true,
       cacheGroups: {
