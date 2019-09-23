@@ -12,11 +12,6 @@ import Print from '../components/print';
 import Reset from '../components/reset';
 import MusclesTabe from '../containers/muscles_tabe';
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'production') {
-  ReactGA.initialize('UA-148344671-2');
-  ReactGA.pageview(window.location.pathname + window.location.search);
-}
-
 const App = () => {
   return (
     <div className="app">
