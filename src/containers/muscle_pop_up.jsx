@@ -44,6 +44,7 @@ class MusclePopUp extends Component {
           <div className="gradient-square">
             <h5 id="editUserModallabel" className="gradient-square-text">{this.props.selectedMuscle}</h5>
           </div>
+          <button onClick={this.handleForceOnMuscle} className="zero-force">0</button>
           <button onClick={this.handleForceOnMuscle} className="one-force">1</button>
           <button onClick={this.handleForceOnMuscle} className="two-force">2</button>
           <button onClick={this.handleForceOnMuscle} className="three-force">3</button>

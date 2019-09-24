@@ -6,10 +6,10 @@ import { flipBody } from '../../actions/index';
 
 class BodySelect extends PureComponent {
   handleBodyFlip = (event) => {
-    if (event.target.innerText === "Arrière") {
+    if (event.target.innerText === "Back") {
       this.props.flipBody("back");
     }
-    if (event.target.innerText === "Avant") {
+    if (event.target.innerText === "Face") {
       this.props.flipBody("face");
     }
   }
@@ -17,7 +17,7 @@ class BodySelect extends PureComponent {
   render() {
     return (
       <div className="body-select">
-        <button className="btn btn-grey" onClick={this.handleBodyFlip}>Front</button>
+        <button className="btn btn-grey" onClick={this.handleBodyFlip}>Face</button>
         <button className="btn btn-grey" onClick={this.handleBodyFlip}>Back</button>
       </div>
     );

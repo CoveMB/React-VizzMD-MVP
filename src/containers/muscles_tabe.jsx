@@ -15,10 +15,10 @@ class MusclesTabe extends Component {
           rightMuscleId={`${muscleObj.name}-right`}
           leftMuscleId={`${muscleObj.name}-left`}
           name={muscleObj.name}
-          rightForce={muscleObj.rightForce}
+          rightForce={muscleObj.forceRight}
           nerf={muscleObj.nerf}
           root={muscleObj.root}
-          leftForce={muscleObj.leftForce}
+          leftForce={muscleObj.forceLeft}
           key={muscleObj.name}
         />
       );

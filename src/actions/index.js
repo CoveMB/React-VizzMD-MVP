@@ -23,19 +23,17 @@ export function selectMuscle(muscleName) {
 
 export function changeMuscleForce(force, muscleInfo, musclesState) {
   const [name, side] = muscleInfo.split("-");
-
   const newMuscles = musclesState.map((muscleObj) => {
     if (muscleObj.name === name) {
-      if (side === "left") {
-        return {
-          ...muscleObj,
-          leftForce: Number(force)
-        };
-      }
       if (side === "right") {
         return {
           ...muscleObj,
-          rightForce: Number(force)
+          forceRight: Number(force)
+        };
+      } if (side === "left") {
+        return {
+          ...muscleObj,
+          forceLeft: Number(force)
         };
       }
     }

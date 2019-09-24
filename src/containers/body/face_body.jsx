@@ -2,91 +2,28 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import BodyMusclesCouple from './body_muscles_couple';
+
 import { selectMuscle } from '../../actions/index';
 
 class FaceBody extends Component {
-  componentDidMount() {
-    const musclesOnBody = [
-      this.scmRight, this.scmLeft, this.trapRight, this.trapLeft,
-      this.deltoideRight, this.bicepsRight, this.bicepsLeft, this.deltoideLeft, this.pecRight,
-      this.pecLeft, this.ptRight, this.ptleft, this.fdiRight, this.fdiLeft,
-      this.supiRight, this.supiLeft, this.fcrRight, this.fcrRLeft, this.apbRight,
-      this.psoasRight, this.psoasLeft, this.addlongRight, this.addlongLeft, this.quadRight,
-      this.quadLeft, this.apbLeft, this.tibantRight, this.tibantLeft, this.tibpostRight,
-      this.tibpostLeft
-    ];
-
-    musclesOnBody.forEach((muscle) => {
-      this.mapMusclesToBody(muscle);
-    });
-  }
-
   shouldComponentUpdate(nextProps) {
     return (nextProps.muscles !== this.props.muscles);
   }
 
-  componentDidUpdate() {
-    const musclesOnBody = [
-      this.scmRight, this.scmLeft, this.trapRight, this.trapLeft,
-      this.deltoideRight, this.bicepsRight, this.bicepsLeft, this.deltoideLeft, this.pecRight,
-      this.pecLeft, this.ptRight, this.ptleft, this.fdiRight, this.fdiLeft,
-      this.supiRight, this.supiLeft, this.fcrRight, this.fcrRLeft, this.apbRight,
-      this.psoasRight, this.psoasLeft, this.addlongRight, this.addlongLeft, this.quadRight,
-      this.quadLeft, this.apbLeft, this.tibantRight, this.tibantLeft, this.tibpostRight,
-      this.tibpostLeft
-    ];
 
-    musclesOnBody.forEach((muscle) => {
-      this.mapMusclesToBody(muscle);
+  buildBodyMuscleSVG = () => {
+    const faceMuscles = this.props.muscles.filter(muscle => muscle.view === "face");
+    return faceMuscles.map((muscle) => {
+      return (<BodyMusclesCouple
+        muscleName={muscle.name}
+        key={muscle.name}
+        muscleRightSVGPath={muscle.svgPathRight}
+        muscleLeftSVGPath={muscle.svgPathLeft}
+        muscleRightForce={muscle.forceRight}
+        muscleLeftForce={muscle.forceLeft}
+      />);
     });
-  }
-
-  mapMusclesToBody = (muscle) => {
-    if (this.props.muscles) {
-      const [name, side] = muscle.getAttribute('id').split("-");
-      this.props.muscles.forEach((muscleObj) => {
-        if (muscleObj.name === name) {
-          if (side === "left") {
-            this.applyColor(muscleObj.leftForce, muscle);
-          }
-          if (side === "right") {
-            this.applyColor(muscleObj.rightForce, muscle);
-          }
-        }
-      });
-    }
-  }
-
-  applyColor = (force, muscle) => {
-    switch (force) {
-      case 1:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("one-force");
-        break;
-      case 2:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("two-force");
-        break;
-      case 3:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("three-force");
-        break;
-      case 4:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("four-force");
-        break;
-      case 5:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("five-force");
-        break;
-      default:
-        break;
-    }
-  }
-
-  handleClickMuscle = (event) => {
-    event.persist();
-    this.props.selectMuscle(event.target.getAttribute('id'));
   }
 
   render() {
@@ -99,40 +36,9 @@ class FaceBody extends Component {
               <path d="M583.565 249.173c-5.5 1.4-16.3 8-22.7 14-2.7 2.4-3.7 5.1-2 5.1 1.6 0 12.5-4 20.8-7.5 12.8-5.5 23.1-6.2 39.4-2.5 4.2.9 6.5.9 9.8 0 3.9-1 4.3-1.4 4-3.8-.5-4.8-4-5.5-26.3-5.8-11-.2-21.3 0-23 .5zM733.065 249.173c-6.3 1-9 2.7-9 5.6 0 3.6 6.4 5.2 14 3.5 16.6-3.7 26.5-3 40.4 2.9 22.6 9.5 27.1 8.7 12.5-2.2-13-9.9-13.9-10.1-34.9-10.3-10.2-.1-20.5.1-23 .5zM614.565 285.073c9.8 5.4 16.2 10.4 20.7 16.6l3.1 4.1-.6-4.3c-1.1-8.6-9.9-16.8-21.2-19.7-11.1-2.8-11.7-1.9-2 3.3zM743.565 280.973c-4.8 1-11.3 3.8-15.1 6.5-4.6 3.3-9.4 11.1-9.4 15.3 0 2.8 0 2.7 2.9-1.2 4.3-5.9 10.9-11.1 20.9-16.5 7.1-3.9 8.1-4.8 5.7-4.7-1.6.1-3.9.3-5 .6zM566.265 298.873c1.4 3 5.7 12.3 6.6 14.6 1.5 3.7 5 5.7 14.5 8.6 12.3 3.6 30.4 4.2 41.6 1.3 13-3.2 17.4-6.7 13.6-10.5-2.3-2.3-9.7-2.1-14.7.5-7 3.6-17.1 5.2-25.2 3.9-10.3-1.6-27.6-10.1-27.6-13.6 0-.8-1-2-2.2-2.8-2.9-1.8-7.2-3.1-6.6-2zM786.365 299.972c-1.8.9-3.3 2.4-3.3 3.4 0 3.7-16.9 12.2-27.6 13.9-8.1 1.3-18.2-.3-25.2-3.9-2.6-1.3-6-2.1-9.2-2.1-4.4 0-5.2.3-6.2 2.5-1.6 3.5.1 5 8.8 8.2 9.9 3.6 27.1 4.3 40.4 1.5 11.3-2.3 19-5.7 20.7-9.2.7-1.4 2.4-5.2 4-8.5 1.5-3.3 2.9-6.3 3.1-6.8.6-1.2-2.1-.7-5.5 1zM634.965 361.373c-4.2 10.1 2.6 25.8 10.2 23.4 2.9-.9 2.3-4.8-1.2-8.1-4-3.7-5.9-7.5-6-11.6 0-1.8-.4-4.2-.8-5.2-.6-1.6-.9-1.5-2.2 1.5zM719.565 363.373c-.9 6.5-2.3 9.4-6.4 13.3-5.3 5-3.2 10.1 3.1 7.7 5.8-2.2 9.3-16.7 5.6-23.5l-1.6-3-.7 5.5zM650.065 365.172c-1.4 2.7-1.3 6.4.4 8.6 1.2 1.7 1.7 1.8 4.1.7 2.1-1 3.9-1 8.6 0 3.2.6 6.2.9 6.6.5 1.5-1.6-12.7-11.7-16.4-11.7-1.2 0-2.7.9-3.3 1.9zM697.365 365.972c-7.1 5-10.8 8.2-10 8.9.4.5 3.4.2 6.6-.4 4.7-1 6.5-1 8.6 0 2.4 1.1 2.9 1 4.1-.7 2.9-3.9 1-10.5-3-10.5-1.3 0-4.1 1.2-6.3 2.7zM660.065 410.273c-2.4 1.2-6.7 3.8-9.5 5.9-7.7 5.8-9.5 6.5-17.4 6.7-6.8.1-7.7.4-9.8 2.8-1.5 1.7-2.3 4-2.3 6.3 0 3.5.1 3.5 3.2 2.9 1.8-.3 4.5-2 6.1-3.7l2.8-3.1 8.7.5c7.3.4 10 1.1 17.2 4.3 7.6 3.4 9.5 3.9 18.1 4.2 9.3.4 9.7.3 21.1-4.2 10-4 12.6-4.6 18.8-4.6 6.6 0 7.3.2 9.8 3 1.5 1.6 4.2 3.3 6 3.6 3.1.6 3.2.6 3.2-2.9 0-2.3-.8-4.6-2.3-6.3-2.1-2.4-3.1-2.7-9.8-2.9-8.3-.2-9.8-.8-18.1-7.2-8.3-6.3-12-7.6-19.3-6.9-7.7.8-7.8.8-15.5.1-5.4-.5-7.3-.2-11 1.5zm23.1 6.1c10-.1 10.9.1 16.9 3 4.2 2.2 5.8 3.4 4.9 3.9-1.7.9-18.3 2.4-26.4 2.4-7.9 0-24.7-1.5-26.3-2.3-.8-.5.4-1.7 3.6-3.4 5.7-3.1 11.8-4.7 14.7-3.9 1.1.3 6.8.4 12.6.3z" />
               <path d="M650.065 440.173c2.9 10.1 11.7 15.1 26.6 15.1 17.3 0 27.6-5.1 30.4-15.1.5-1.6.6-2.9.3-2.9s-2.4 1.6-4.6 3.6c-2.2 2-6.5 4.8-9.6 6.3-4.8 2.2-6.9 2.6-15.1 2.6-8.4 0-10.1-.3-14.8-2.8-2.9-1.5-7-4.3-9.1-6.2-4.7-4.2-5.2-4.3-4.1-.6zM662.565 872.072c-1.6 1.1-11.3 8.8-21.5 17.2-10.2 8.4-22.3 18-26.9 21.4-4.6 3.3-10.2 7.7-12.4 9.6-6.5 5.7-7 8-6.8 28 .2 26.6 2 65.098 3.2 68.698 2.6 8.1 9 8.3 27.7.9 7.5-3 18.6-6.8 24.7-8.6 6-1.8 12.7-4.1 14.8-5.2 7.3-3.7 7.1-1.6 6.3-69.998-.3-33.4-.9-61.4-1.2-62.3-.8-2-4.2-1.9-7.9.3zm-1.9 67.8c-.5 31.3-1.1 48.5-1.9 50.1-.6 1.4-2.2 3-3.6 3.8-2.4 1.2-45 15.498-46.2 15.498-.3 0-1.1-14.298-1.8-31.798-.6-17.4-1.3-33.9-1.5-36.6-.5-7 .8-10.6 5.1-14.8 4-3.8 48-33.8 49.6-33.8.6 0 .7 17.1.3 47.6zM686.765 871.773c-.4.8-.9 28.8-1.3 62.2-.8 68.497-1 66.397 6.3 70.097 2.1 1.1 8.8 3.4 14.8 5.2 6.1 1.8 17.2 5.6 24.8 8.6 18.4 7.2 24.2 7.2 27.2 0 1.3-3.1 2.4-22.697 3.9-69.097.4-15.6-.6-22-4.5-26.1-1.3-1.5-7.3-6.3-13.4-10.8-6-4.5-19-14.9-28.9-23-9.8-8.1-19.3-15.7-21-16.7-3.7-2.3-7.2-2.5-7.9-.4zm33.5 35.7c30.9 20.7 32.2 22.1 31.3 34.5-.2 3.8-1 20.4-1.6 37-.7 16.7-1.5 30.297-1.8 30.297-1 0-40.4-13.097-44.4-14.797-2.1-.9-4.4-2.7-5.2-4.1-1-2-1.5-13.9-2-50.5-.7-44.1-.6-47.9.9-47.3.9.4 11.1 7 22.8 14.9zM646.065 1017.87c-17 3.6-33.7 17-41.9 33.4-5.5 11.3-6.3 18.5-6.5 63.7-.2 49.1-2.2 47.6 37.8 28.2 13.8-6.7 26.1-13.1 27.4-14.2 3.4-3.1 4-6.9 5.7-36.2.9-14.9 2-33.5 2.5-41.5 1.5-22.3 1.3-31.6-.6-33.4-2-2-15.1-2-24.4 0zm15.6 13c.4 1.5.4 7.2.1 12.8-.6 10.4-6.3 65.2-7.3 69.5-1 4.5-5.9 7.7-24.5 15.9-10.2 4.5-19.1 8.2-19.7 8.2-.9 0-1.2-4.7-1.2-17.3-.1-9.4-.5-25.7-1-36.2-1.2-23.8-.7-25.9 6.9-33.6 12.3-12.2 30.5-21.6 42.3-21.8 3.3-.1 3.9.3 4.4 2.5zM686.465 1017.97c-1.5 1.6-1.6 3.4-1.1 17.3.8 19.7 4.6 82.4 5.3 86.8.3 1.8 1.7 4.6 3.2 6.1 1.6 1.7 13 7.8 27.8 15 28.3 13.8 32 14.7 35.8 9.8 2.1-2.8 2.1-3.5 2-38.5-.2-44.8-.9-51.8-6.5-63.2-8.3-16.7-24.9-29.8-42.4-33.5-10-2.1-21.9-2-24.1.2zm21.9 11.9c11.1 2.8 24.2 10.8 33.7 20.3 7.9 7.9 8.2 9.5 7 34.2-.5 11.2-1 27.8-1 36.8v16.3l-2.5-.6c-1.4-.4-10.7-4.3-20.7-8.9-12.7-5.7-18.7-9-20.1-10.9-1.7-2.3-2.6-7.5-5.3-32-3.7-32.7-5-50.3-4-54.2.8-3.2 3.7-3.4 12.9-1zM643.365 1149.77c-23.8 11.3-37.1 21.2-42 31.4l-2.8 5.6-.8 31.5c-.8 33.6.2 56.4 2.7 62.4 3 7.2 9.8 6.2 24.1-3.4 5.8-4 13.6-8.5 17.2-10 9.4-4 14.6-8 17.2-13.2 2.3-4.9 3.7-18.2 6.6-62.8 1.8-28.3 1.9-39.9.2-42.1-4-5.3-10.6-5.1-22.4.6zm12 20.7c-2.2 25-6.4 68.1-7 72.8-.8 6.6-7.6 12.8-23.4 21.2-6.9 3.8-13 6.8-13.6 6.8-.6 0-1.4-1.2-1.7-2.8-1.3-5.3-1.7-31.9-.9-55.4l.8-23.6 3-4.3c2.4-3.4 7.1-6.7 23.5-16.6 11.2-6.7 20.5-12.3 20.5-12.3.1 0-.5 6.4-1.2 14.2zM693.165 1147.87c-3 2.5-3.1 2.8-3.1 10.8 0 9.1 2.3 45.7 4.5 72.9 1.3 16 1.8 18.4 4.2 22.9 3 5.6 7.8 9.3 16.6 12.7 3.1 1.3 10.7 5.7 16.8 9.8 6.1 4.1 12.6 7.7 14.4 8 5.5.9 8.5-.4 10.1-4.2 2.4-5.8 3.5-26.7 3-59.7-.4-29.2-.5-31.7-2.6-37.1-4.3-11.5-17.8-22.1-43.2-34.2-11.4-5.4-16.1-5.8-20.7-1.9zm27.5 20.4c9.3 5.6 18.4 11.3 20.3 12.7 6.5 5 6.9 7.1 7.7 43.3.7 32.6-.2 47-2.8 47-.6 0-6.7-3-13.6-6.8-11.9-6.4-20.2-12.5-22.2-16.1-1.1-2.1-3.1-20.1-6.5-58.4-2.9-32.8-3-33.1-1.1-32.4.7.3 8.9 5.1 18.2 10.7zM672.665 1261.17c-7.2 7.5-7.5 24.5-.5 31 2.6 2.4 9.3 2.9 12 .8 3.6-2.7 5.9-8.1 5.9-13.8 0-11.6-5.1-20.9-11.5-20.9-2.1 0-4 .9-5.9 2.9zM641.965 1282.27c-8.2 2.4-27.9 10-34.7 13.4-8.8 4.4-8.6 3.8-9.4 37.6-.8 33 0 47.4 3.8 68 3 16.1 10.3 45.6 14.9 59.6 7.9 24.2 19.9 41.5 36.8 53.2 10.4 7.3 15.2 6.5 18.4-3 1.5-4.8 1.7-11.7 2.1-68.8.5-83.4-1.2-113-7.8-138.8-5.8-23-8.7-25.6-24.1-21.2zm14.7 26c2.6 15.5 2.6 15.7 3.5 93.5.5 42.9 1.2 83.6 1.5 90.4l.7 12.3-2.4-1.2c-5.3-2.8-15.1-11.5-19.5-17.3-7.9-10.4-11.8-20.1-17.8-43.8-6.2-24-9.8-42.6-12.2-61.7-1.8-14.6-3.4-65.2-2.2-69.8 1.4-5.2 4.9-7.3 22.5-13.4 9.2-3.2 17.9-6.2 19.3-6.8 3.3-1.3 3.3-1.2 6.6 17.8zM699.065 1283.07c-5.2 5.2-10.5 26.5-13.7 54.2-1.5 13.4-1.7 25.7-1.8 91.5 0 70 .1 76.5 1.8 81.7 3.1 10.1 7.7 11 18.4 3.6 16.9-11.6 28.6-28.6 36.8-53.1 4.5-13.6 11.9-43 15-60 3.8-20.9 4.4-32.4 3.8-66-.7-36.7-.2-34.9-12.6-40.7-16-7.4-35.7-14-42-14-1.8 0-3.9 1-5.7 2.8zm35.1 16.8c8.7 2.7 12.6 5.4 14.4 9.8 1.4 3.6.4 50-1.5 67.6-3.4 31-15.3 81.7-22.5 96.2-6.3 12.4-17.3 24.5-26.8 29.4l-2.9 1.6.6-11.4c.3-6.2 1-46.9 1.5-90.3.9-78.3 1-79.1 3.5-94 1.4-8.3 2.8-16 3.1-17.1.5-2.2.6-2.1 11.7 1.8 6.2 2.2 14.7 5.1 18.9 6.4zM422.665 2622.87c-2.7 13.3-3.8 39.5-2.6 62.9.5 11 1.3 31.5 1.7 45.5.6 22.9.8 25.1 2 21.6 4.1-12 6.3-36.1 6.3-69.5 0-25.4-1.2-43.8-3.6-54-1.9-8.5-3-10.3-3.8-6.5zM931.765 2625.27c-3.4 11.8-4.2 22.9-4.2 59.5.1 38 1.3 53 5.3 66.1l1.8 5.9.7-24.5c.4-13.5 1.1-34 1.7-45.5 1.2-21.3.8-36.4-1.2-53.5-1.5-13.5-2.2-14.8-4.1-8z" />
             </g>
-            <path id="SCM-right" ref={(scmRight) => { this.scmRight = scmRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M578 486.5l1-5h2l26.5 17 48 118.5-1 5.5-15-3-6.5-3.5-6.5-6-36.5-88.5-12-35z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="SCM-left" ref={(scmLeft) => { this.scmLeft = scmLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M780 486l-1.006-5h-2.013l-26.671 17L702 616.5l1.006 5.5 15.097-3 6.542-3.5 6.542-6 36.736-88.5L780 486z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Trap-right" ref={(trapRight) => { this.trapRight = trapRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M582.5 531l-9-17.5L547 556l-9.5 13-19.5 16-36.5 22.5-2 4 23 14.5 12 5 12.5 2 12-8.5 52-68.5-8.5-25z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Trap-left" ref={(trapLeft) => { this.trapLeft = trapLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M774.386 530.573L783.265 513l26.143 42.678 9.372 13.054 19.238 16.067 36.009 22.594L876 611.41l-22.691 14.561-11.838 5.021L829.139 633l-11.839-8.536-51.3-68.786 8.386-25.105z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Deltoide-right" ref={(deltoideRight) => { this.deltoideRight = deltoideRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M400.5 622c9.5-2.667 29.2-8.3 32-9.5l29 3.5 20 12.5-33.5 85-35 63.5-37.5 48.5L340 849l-8.5 13.5H328l-3-13.5-3-72v-18.5l3-18 6.5-27L340 687l18-33.5 17.5-17 25-14.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Biceps-right" ref={(bicepsRight) => { this.bicepsRight = bicepsRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M391 853l6.5-28-17.5 3-72.5 77.5-24 71.5-13 67 6 41 21-16 14-16 17.5-33 62-167z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Biceps-left" ref={(bicepsLeft) => { this.bicepsLeft = bicepsLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M966.5 854l-6.5-28 17.5 3 72.5 77.5 24 71.5 13 67-6 41-21-16-14-16-17.5-33-62-167z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Deltoide-left" ref={(deltoideLeft) => { this.deltoideLeft = deltoideLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M957 622.5c-9.5-2.667-29.2-8.3-32-9.5l-29 3.5-20 12.5 33.5 85 35 63.5L982 826l35.5 23.5 8.5 13.5h3.5l3-13.5 3-72V759l-3-18-6.5-27-8.5-26.5-18-33.5-17.5-17-25-14.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Pec-right" ref={(pecRight) => { this.pecRight = pecRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M506 636.5l-19.5-8.5-21.5 48-32 79.5-41 62.5 73 31 13 10.5 28 30 23.5 10.5H576l24-4.5 45-40 13.5-25v-142l-13.5-21-22.5-15-22.5-6-94-10z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Pec-left" ref={(pecLeft) => { this.pecLeft = pecLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M852 636.5l19.5-8.5 21.5 48 32 79.5 41 62.5-73 31-13 10.5-28 30-23.5 10.5H782l-24-4.5-45-40-13.5-25v-142l13.5-21 22.5-15 22.5-6 94-10z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="PT-right" ref={(ptRight) => { this.ptRight = ptRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M175 1328.5l-38.5 26.75-8.5 24.28 26.5 7.56 20.5 7.41 15.5 25.5H206l-4-40.47 14-33.53-14-15-27-2.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="PT-left" ref={(ptleft) => { this.ptleft = ptleft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M1182 1329l38.5 26.61 8.5 24.14-26.5 7.52-20.5 7.37-15.5 25.36H1151l4-40.25-14-33.35 14-14.91 27-2.49z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="FDI-right" ref={(fdiRight) => { this.fdiRight = fdiRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M263 1155.5l25-35.5 4 9v15.5l-4 22-21.5 48-23.5 46-19.5 29-17.5 27-7 14.5-26-3.5v-5l8.5-20 24.5-61 10.5-18 13.5-23 33-45z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="FDI-left" ref={(fdiLeft) => { this.fdiLeft = fdiLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M1095 1153.5l-25-35.5-4 9v15.5l4 22 21.5 48 23.5 46 19.5 29 17.5 27 7 14.5 26-3.5v-5l-8.5-20-24.5-61-10.5-18-13.5-23-33-45z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Supi-right" ref={(supiRight) => { this.supiRight = supiRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M227.5 1097.5L257 1049l20.5 48.5h11l-37 57.5-33.5 49-17.5 36.5-29.5 87-26 20.5 13.5-35.5 23-77.5 15.5-55 17.5-48 13-34.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Supi-left" ref={(supiLeft) => { this.supiLeft = supiLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M1131 1100.5l-29.5-48.5-20.5 48.5h-11l37 57.5 33.5 49 17.5 36.5 29.5 87 26 20.5-13.5-35.5-23-77.5-15.5-55-17.5-48-13-34.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="FCR-right" ref={(fcrRight) => { this.fcrRight = fcrRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M202 1328l129-214.5h5.5L325 1152l-108.5 196.5L202 1328z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="FCR-left" ref={(fcrRLeft) => { this.fcrRLeft = fcrRLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M1155 1330.5L1026 1116h-5.5l11.5 38.5 108.5 196.5 14.5-20.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="APB-right" ref={(apbRight) => { this.apbRight = apbRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M53.5 1420c20.333-13 62.2-39.6 67-42l23.5 7.5-8 11-4.5 23.5-15.5 22.5-42.5 7.5-32 4.5L10 1461l-6.5-6.5 6.5-12 43.5-22.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Psoas-right" ref={(psoasRight) => { this.psoasRight = psoasRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M616 1171l61.5-28.5v76c-26.975 20.01-40.965 34.72-62 73-9.728 28.39-19.728 59.09-19 79 .728 19.91-33.291 78.72-34 73l-22 51-5-6.5 9-73c12.843-20.48 20.482-31.37 28-59 .65-11.83 2.823-34.79 8-87.5 7.09-48.45 14.308-70.65 35.5-97.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Psoas-left" ref={(psoasLeft) => { this.psoasLeft = psoasLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M740.5 1171.5L679 1143v76c26.975 20.01 40.965 34.72 62 73 9.728 28.39 19.728 59.09 19 79-.728 19.91 33.291 78.72 34 73l22 51 5-6.5-9-73c-12.843-20.48-20.482-31.37-28-59-.65-11.83-2.823-34.79-8-87.5-7.09-48.45-14.308-70.65-35.5-97.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Add long-right" ref={(addlongRight) => { this.addlongRight = addlongRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M565 1558.5l33.5-75 33.5 34v16.5l-13 79-25 73-29-94v-33.5z" stroke="#CD0C0C" strokeWidth="7" />
-            <path id="Add long-left" ref={(addlongLeft) => { this.addlongLeft = addlongLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M793 1558.19L759.5 1483l-33.5 34.08v16.54l13 79.2 25 73.18 29-94.23v-33.58z" stroke="#CD0C0C" strokeWidth="7" />
-            <path id="Quad-right" ref={(quadRight) => { this.quadRight = quadRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M441.5 1506.5L478 1409l10 20c1 23.17 4.3 72.3 9.5 83.5 5.2 11.2 16.5 64.33 21.5 89.5l37.5 85.5c6.167 21 19.2 64.2 22 69 2.8 4.8 11.5 22 15.5 30v121L571 2017l-20 15.5-32 8-5 33.5-19.5 47.5-24.5-34-13.5-13.5-7.5-33.5V2026l-7.5-32-19-91-10.5-116.5-9-99 9-85.5 29.5-95.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Quad-left" ref={(quadLeft) => { this.quadLeft = quadLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M918.5 1506.5L882 1409l-10 20c-1 23.17-4.3 72.3-9.5 83.5-5.2 11.2-16.5 64.33-21.5 89.5l-37.5 85.5c-6.167 21-19.2 64.2-22 69-2.8 4.8-11.5 22-15.5 30v121l23 109.5 20 15.5 32 8 5 33.5 19.5 46 24.5-34 13.5-12 7.5-33.5V2026l7.5-32 19-91 10.5-116.5 9-99-9-85.5-29.5-95.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="APB-left" ref={(apbLeft) => { this.apbLeft = apbLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M1303.5 1421c-20.33-13-62.2-39.6-67-42l-23.5 7.5 8 11 4.5 23.5 15.5 22.5 42.5 7.5 32 4.5 31.5 6.5 7-11-7-7.5-43.5-22.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Tib ant-right" ref={(tibantRight) => { this.tibantRight = tibantRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M443.5 2184l-11.5-15-26 113.5v55l4.5 55 10.5 79 7.5 4.5 2.5-17.5 5.5-77 5-69 2-128.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Tib ant-left" ref={(tibantLeft) => { this.tibantLeft = tibantLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M915 2184l11.5-15 26 113.5v55l-4.5 55-10.5 79-7.5 4.5-2.5-17.5-5.5-77-5-69-2-128.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Tib post-right" ref={(tibpostRight) => { this.tibpostRight = tibpostRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M403.5 2167l-9.5-12-6 16-4.5 62.5L373 2298v65.5l10.5 65c2.833 18.83 8.8 57.4 10 61 1.5 4.5 7 61.5 7 65.5 0 3.2 2 17.33 3 24l9 20.5 11 30.5v-60l-6.5-68-10.5-70-6-55.5-2-22.5v-56l2-26.5 3-19.5 9-34v-17l-4-16-5-18z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Tib post-left" ref={(tibpostLeft) => { this.tibpostLeft = tibpostLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M954 2166l9.5-12 6 16 4.5 62.5 10.5 64.5v65.5l-10.5 65c-2.833 18.83-8.8 57.4-10 61-1.5 4.5-7 61.5-7 65.5 0 3.2-2 17.33-3 24l-9 20.5-11 30.5v-60l6.5-68 10.5-70 6-55.5 2-22.5v-56l-2-26.5-3-19.5-9-34v-17l4-16 5-18z" stroke="#CD0F0F" strokeWidth="7" />
+            {this.buildBodyMuscleSVG()}
           </g>
         </svg>
-
-
       </div>
     );
   }

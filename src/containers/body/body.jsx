@@ -6,6 +6,7 @@ import BackBody from './back_body';
 
 class Body extends PureComponent {
   bodyParts = () => {
+    console.log(this.props.body);
     if (this.props.body === "back") {
       return <BackBody />;
     }
