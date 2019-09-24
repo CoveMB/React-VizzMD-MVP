@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 import { selectMuscle } from '../actions/index';
 
 class TableRow extends Component {
+  shouldComponentUpdate(nextProps) {
+    return (this.props.rightForce !== nextProps.rightForce
+      ||
+      this.props.leftForce !== nextProps.leftForce);
+  }
+
   handleClickMuscle = (event) => {
     event.persist();
     this.props.selectMuscle(event.target.getAttribute('id'));
@@ -32,12 +38,6 @@ class TableRow extends Component {
         return classes;
       }
     }
-  }
-
-  shouldComponentUpdate(nextProps) {
-    return (this.props.rightForce !== nextProps.rightForce
-      ||
-      this.props.leftForce !== nextProps.leftForce);
   }
 
   render() {

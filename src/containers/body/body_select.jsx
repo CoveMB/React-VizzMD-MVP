@@ -17,8 +17,8 @@ class BodySelect extends PureComponent {
   render() {
     return (
       <div className="body-select">
-        <button className="btn btn-secondary" onClick={this.handleBodyFlip}>Avant</button>
-        <button className="btn btn-secondary" onClick={this.handleBodyFlip}>Arrière</button>
+        <button className="btn btn-grey" onClick={this.handleBodyFlip}>Front</button>
+        <button className="btn btn-grey" onClick={this.handleBodyFlip}>Back</button>
       </div>
     );
   }

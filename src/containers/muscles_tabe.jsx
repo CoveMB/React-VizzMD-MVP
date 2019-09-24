@@ -30,11 +30,11 @@ class MusclesTabe extends Component {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Droite</th>
+            <th scope="col">Right</th>
             <th scope="col">Muscle</th>
             <th scope="col">Nerf</th>
-            <th scope="col">Racine</th>
-            <th scope="col">Gauche</th>
+            <th scope="col">Root</th>
+            <th scope="col">Left</th>
           </tr>
         </thead>
         <tbody>

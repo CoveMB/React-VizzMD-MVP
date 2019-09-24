@@ -37,7 +37,7 @@ class PatientPopUp extends PureComponent {
     return (
       <Popup
         trigger={
-          <button className="btn btn-secondary" onClick={this.openModal}>Changer la référence</button>
+          <button className="btn btn-grey" onClick={this.openModal}>Change reference</button>
         }
         modal
         position="right center"
@@ -45,9 +45,11 @@ class PatientPopUp extends PureComponent {
         onClose={this.closeModal}
       >
         <form onSubmit={this.handleSubmit} >
-          <h3>Quel est la référence du patient?</h3>
+          <div className="gradient-square">
+            <h5 id="editUserModallabel" className="gradient-square-text">What is the patient's reference?</h5>
+          </div>
           <input
-            className="form-control"
+            className="form-control patient-ref-input"
             type="text"
             id="ref"
             name="ref"
@@ -56,7 +58,7 @@ class PatientPopUp extends PureComponent {
             value={this.state.patient}
             onChange={this.handleChange}
           />
-          <button className="btn btn-secondary btn-pop-up-ok float-right" type="submit">Ok</button>
+          <button className="btn btn-grey btn-pop-up-ok float-right" type="submit">Ok</button>
         </form>
 
       </Popup>

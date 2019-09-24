@@ -41,7 +41,9 @@ class MusclePopUp extends Component {
         onClose={this.closeModal}
       >
         <div className="scale-muscle-popup">
-          <h3 className="muscle-pop-ip-title">{this.props.selectedMuscle}</h3>
+          <div className="gradient-square">
+            <h5 id="editUserModallabel" className="gradient-square-text">{this.props.selectedMuscle}</h5>
+          </div>
           <button onClick={this.handleForceOnMuscle} className="one-force">1</button>
           <button onClick={this.handleForceOnMuscle} className="two-force">2</button>
           <button onClick={this.handleForceOnMuscle} className="three-force">3</button>

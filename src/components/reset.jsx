@@ -6,7 +6,7 @@ const Reset = () => {
   };
   return (
     <div className="reset">
-      <button className="btn btn-danger" onClick={reload}>Prochain patient</button>
+      <button className="btn btn-danger" onClick={reload}>Next patient</button>
     </div>
   );
 };

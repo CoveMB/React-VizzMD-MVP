@@ -32,7 +32,7 @@ class Print extends PureComponent {
       <div className="print">
         <Popup
           trigger={
-            <button className="btn  btn-success" onClick={this.openModal}>Imprimer</button>
+            <button className="btn  btn-success" onClick={this.openModal}>Print</button>
           }
           modal
           position="right center"
