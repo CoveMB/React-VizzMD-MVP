@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { selectMuscle } from '../actions/index';
 
-class TableRow extends PureComponent {
+class TableRow extends Component {
   handleClickMuscle = (event) => {
     event.persist();
     this.props.selectMuscle(event.target.getAttribute('id'));
@@ -32,6 +32,12 @@ class TableRow extends PureComponent {
         return classes;
       }
     }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return (this.props.rightForce !== nextProps.rightForce
+      ||
+      this.props.leftForce !== nextProps.leftForce);
   }
 
   render() {

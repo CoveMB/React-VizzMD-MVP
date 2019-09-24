@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { selectMuscle } from '../../actions/index';
 
-class BackBody extends PureComponent {
+class BackBody extends Component {
   componentDidMount() {
     const musclesOnBody = [
       this.latRight, this.latLeft, this.tricepsRight, this.tricepsLeft,
@@ -17,6 +17,10 @@ class BackBody extends PureComponent {
     musclesOnBody.forEach((muscle) => {
       this.mapMusclesToBody(muscle);
     });
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.muscles !== this.props.muscles);
   }
 
   componentDidUpdate() {

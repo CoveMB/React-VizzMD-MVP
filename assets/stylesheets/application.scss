@@ -1,6 +1,8 @@
 @import "scale";
 @import "table";
 @import "buttons";
+@import "popup";
+@import "body";
 
 body {
   margin:0;
@@ -10,16 +12,6 @@ body {
 .app {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.svg-body{
-  margin: 0 15% 0 0;
-  width: 85%;
-}
-
-.scale-body{
-  width: 100%;
-  display: flex;
 }
 
 .top-actions{
@@ -32,10 +24,4 @@ body {
 .patient-ref{
   height: 20px;
   padding: 10px 0 0 10px;
-}
-
-.body-select{
-  width: 20%;
-  display: flex;
-  justify-content: space-between;
 }

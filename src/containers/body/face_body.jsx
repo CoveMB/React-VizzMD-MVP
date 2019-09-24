@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { selectMuscle } from '../../actions/index';
 
-class FaceBody extends PureComponent {
+class FaceBody extends Component {
   componentDidMount() {
     const musclesOnBody = [
       this.scmRight, this.scmLeft, this.trapRight, this.trapLeft,
@@ -19,6 +19,10 @@ class FaceBody extends PureComponent {
     musclesOnBody.forEach((muscle) => {
       this.mapMusclesToBody(muscle);
     });
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.muscles !== this.props.muscles);
   }
 
   componentDidUpdate() {
@@ -116,8 +120,8 @@ class FaceBody extends PureComponent {
             <path id="APB-right" ref={(apbRight) => { this.apbRight = apbRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M53.5 1420c20.333-13 62.2-39.6 67-42l23.5 7.5-8 11-4.5 23.5-15.5 22.5-42.5 7.5-32 4.5L10 1461l-6.5-6.5 6.5-12 43.5-22.5z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="Psoas-right" ref={(psoasRight) => { this.psoasRight = psoasRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M616 1171l61.5-28.5v76c-26.975 20.01-40.965 34.72-62 73-9.728 28.39-19.728 59.09-19 79 .728 19.91-33.291 78.72-34 73l-22 51-5-6.5 9-73c12.843-20.48 20.482-31.37 28-59 .65-11.83 2.823-34.79 8-87.5 7.09-48.45 14.308-70.65 35.5-97.5z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="Psoas-left" ref={(psoasLeft) => { this.psoasLeft = psoasLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M740.5 1171.5L679 1143v76c26.975 20.01 40.965 34.72 62 73 9.728 28.39 19.728 59.09 19 79-.728 19.91 33.291 78.72 34 73l22 51 5-6.5-9-73c-12.843-20.48-20.482-31.37-28-59-.65-11.83-2.823-34.79-8-87.5-7.09-48.45-14.308-70.65-35.5-97.5z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Add Long-right" ref={(addlongRight) => { this.addlongRight = addlongRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M565 1558.5l33.5-75 33.5 34v16.5l-13 79-25 73-29-94v-33.5z" stroke="#CD0C0C" strokeWidth="7" />
-            <path id="Add Long-left" ref={(addlongLeft) => { this.addlongLeft = addlongLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M793 1558.19L759.5 1483l-33.5 34.08v16.54l13 79.2 25 73.18 29-94.23v-33.58z" stroke="#CD0C0C" strokeWidth="7" />
+            <path id="Add long-right" ref={(addlongRight) => { this.addlongRight = addlongRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M565 1558.5l33.5-75 33.5 34v16.5l-13 79-25 73-29-94v-33.5z" stroke="#CD0C0C" strokeWidth="7" />
+            <path id="Add long-left" ref={(addlongLeft) => { this.addlongLeft = addlongLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M793 1558.19L759.5 1483l-33.5 34.08v16.54l13 79.2 25 73.18 29-94.23v-33.58z" stroke="#CD0C0C" strokeWidth="7" />
             <path id="Quad-right" ref={(quadRight) => { this.quadRight = quadRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M441.5 1506.5L478 1409l10 20c1 23.17 4.3 72.3 9.5 83.5 5.2 11.2 16.5 64.33 21.5 89.5l37.5 85.5c6.167 21 19.2 64.2 22 69 2.8 4.8 11.5 22 15.5 30v121L571 2017l-20 15.5-32 8-5 33.5-19.5 47.5-24.5-34-13.5-13.5-7.5-33.5V2026l-7.5-32-19-91-10.5-116.5-9-99 9-85.5 29.5-95.5z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="Quad-left" ref={(quadLeft) => { this.quadLeft = quadLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M918.5 1506.5L882 1409l-10 20c-1 23.17-4.3 72.3-9.5 83.5-5.2 11.2-16.5 64.33-21.5 89.5l-37.5 85.5c-6.167 21-19.2 64.2-22 69-2.8 4.8-11.5 22-15.5 30v121l23 109.5 20 15.5 32 8 5 33.5 19.5 46 24.5-34 13.5-12 7.5-33.5V2026l7.5-32 19-91 10.5-116.5 9-99-9-85.5-29.5-95.5z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="APB-left" ref={(apbLeft) => { this.apbLeft = apbLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M1303.5 1421c-20.33-13-62.2-39.6-67-42l-23.5 7.5 8 11 4.5 23.5 15.5 22.5 42.5 7.5 32 4.5 31.5 6.5 7-11-7-7.5-43.5-22.5z" stroke="#CD0F0F" strokeWidth="7" />

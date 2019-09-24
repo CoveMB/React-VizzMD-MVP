@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
@@ -6,7 +6,11 @@ import Popup from "reactjs-popup";
 import { selectMuscle, changeMuscleForce } from '../actions/index';
 
 
-class MusclePopUp extends PureComponent {
+class MusclePopUp extends Component {
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.selectedMuscle !== this.props.selectedMuscle);
+  }
+
   closeModal = () => {
     this.props.selectMuscle(null);
   }

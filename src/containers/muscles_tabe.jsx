@@ -1,9 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TableRow from './table_row';
 
-class MusclesTabe extends PureComponent {
+class MusclesTabe extends Component {
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.muscles !== this.props.muscles);
+  }
+
   buildTable = () => {
     return this.props.muscles.map((muscleObj) => {
       return (
