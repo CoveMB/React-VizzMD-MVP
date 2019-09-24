@@ -45,7 +45,7 @@ class PatientPopUp extends PureComponent {
         >
           <form onSubmit={this.handleSubmit} >
             <div className="gradient-square">
-              <h5 id="editUserModallabel" className="gradient-square-text">What is the patient's reference?</h5>
+              <h5 className="gradient-square-text">What is the patient's reference?</h5>
             </div>
             <input
               className="form-control patient-ref-input"

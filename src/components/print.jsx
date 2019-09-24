@@ -7,6 +7,7 @@ import ReactToPrint from 'react-to-print';
 
 import Reset from './reset';
 import ComponentToPrint from '../containers/component_to_print';
+import Brand from './brand';
 
 import { printing } from '../actions/index';
 
@@ -67,12 +68,13 @@ class Print extends PureComponent {
         >
           <form onSubmit={this.handleSubmit} >
             <div className="gradient-square">
-              <h5 id="editUserModallabel" className="gradient-square-text">Merci d'avoir utiliser VizzMD</h5>
+              <h5 className="gradient-square-text">Thanks for using</h5>
+              <Brand />
             </div>
-            <h2 className="print-pop-up-text">Impression en cours..</h2>
+            <h2 className="print-pop-up-text">Printing..</h2>
             <div className="print-btns">
               <Reset />
-              <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Donnez nous votre avis!</button>
+              <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>
             </div>
           </form>
         </Popup>
