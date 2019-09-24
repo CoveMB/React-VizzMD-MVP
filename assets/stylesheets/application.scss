@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Ubuntu:400,700&display=swap');
+
 @import "scale";
 @import "table";
 @import "buttons";
@@ -10,6 +12,7 @@
 body {
   margin:0;
   padding:0;
+  font-family: 'Lato', sans-serif;
 }
 
 .app {

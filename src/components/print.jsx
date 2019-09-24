@@ -7,7 +7,7 @@ import ReactToPrint from 'react-to-print';
 
 import Reset from './reset';
 import ComponentToPrint from '../containers/component_to_print';
-import Brand from './brand';
+import logo from '../../assets/images/icon.png';
 
 import { printingToogle } from '../actions/index';
 
@@ -41,12 +41,13 @@ class Print extends PureComponent {
         hideHeaders: true,
         hideFooters: true,
         onSubmit: () => {
-          // window.location.reload();
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         }
       }
     );
     popUp.open();
-    window.location.reload();
   }
 
   render() {
@@ -67,7 +68,7 @@ class Print extends PureComponent {
           <form onSubmit={this.handleSubmit} >
             <div className="gradient-square">
               <h5 className="gradient-square-text">Thanks for using</h5>
-              <Brand />
+              <img src={logo} alt="VizzMD logo" height="80" width="70" />
             </div>
             <h2 className="print-pop-up-text">Printing..</h2>
             <div className="print-btns">

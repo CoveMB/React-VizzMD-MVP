@@ -27,8 +27,8 @@ class MusclesTabe extends Component {
 
   render() {
     return (
-      <table className="table">
-        <thead>
+      <table className="table table-striped table-bordered">
+        <thead className="thead-light">
           <tr>
             <th scope="col">Right</th>
             <th scope="col">Muscle</th>
