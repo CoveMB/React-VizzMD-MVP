@@ -52,18 +52,23 @@ class BackBody extends PureComponent {
   applyColor = (force, muscle) => {
     switch (force) {
       case 1:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("one-force");
         break;
       case 2:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("two-force");
         break;
       case 3:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("three-force");
         break;
       case 4:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("four-force");
         break;
       case 5:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("five-force");
         break;
       default:
@@ -98,7 +103,7 @@ class BackBody extends PureComponent {
             <path id="Glut med-right" ref={(glutmedRight) => { this.glutmedRight = glutmedRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M835 1233.5l-37 13-5.5 15.5-5 41.5H829l25.5 4.5 25 10.5L906 1338l56 59.5V1380l-22-76.5-27-34-48.5-23-29.5-13z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="Glut med-left" ref={(glutmedLeft) => { this.glutmedLeft = glutmedLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M578 1233l37 13 5.5 15.5 5 41.5H584l-25.5 4.5-25 10.5-26.5 19.5-56 59.5v-17.5l22-76.5 27-34 48.5-23 29.5-13z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="Gastrocs-right" ref={(gastrocsRight) => { this.gastrocsRight = gastrocsRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M935.5 2177l-39.5-54.5-11 20c-4.167 7.33-12.6 22.3-13 23.5-.4 1.2-10.5 21.5-15.5 31.5l5 81.5 2.5 37.5 13 52.5 22 46 16 19 4.5 19 17.5 69.5 6.5 29.5c.833 9.5 2.5 29.9 2.5 35.5 0 5.6 1 19 1.5 25v58L946 2700l-5 33-2.5 22.5-3.5 20-4 12.5-3 10.5v16l7 10.5c3.167 2 9.9 6 11.5 6 1.6 0 8.667 1.66 12 2.5h10c5.833-1.34 18-4.1 20-4.5 2-.4 6.5-2.84 8.5-4v-17.5l-11-28-6-24-2.5-33-1.5-28V2677l4-43v-123l-4-58-9.5-45-6.5-19.5v-36l-3.5-28-13-106.5-8-41z" stroke="#CD0F0F" strokeWidth="7" />
-            <path id="Gastrocs-rleft" ref={(gastrocsLeft) => { this.gastrocsLeft = gastrocsLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M477.5 2176.5L517 2122l11 20c4.167 7.33 12.6 22.3 13 23.5.4 1.2 10.5 21.5 15.5 31.5l-5 81.5-2.5 37.5-13 52.5-22 46-16 19-4.5 19L476 2522l-6.5 29.5c-.833 9.5-2.5 29.9-2.5 35.5 0 5.6-1 19-1.5 25v58l1.5 29.5 5 33 2.5 22.5 3.5 20 4 12.5 3 10.5v16l-7 10.5c-3.167 2-9.9 6-11.5 6-1.6 0-8.667 1.67-12 2.5h-10c-5.833-1.33-18-4.1-20-4.5-2-.4-6.5-2.83-8.5-4V2807l11-28 6-24 2.5-33 1.5-28v-17.5l-4-43v-123l4-58 9.5-45 6.5-19.5v-36l3.5-28 13-106.5 8-41z" stroke="#CD0F0F" strokeWidth="7" />
+            <path id="Gastrocs-left" ref={(gastrocsLeft) => { this.gastrocsLeft = gastrocsLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M477.5 2176.5L517 2122l11 20c4.167 7.33 12.6 22.3 13 23.5.4 1.2 10.5 21.5 15.5 31.5l-5 81.5-2.5 37.5-13 52.5-22 46-16 19-4.5 19L476 2522l-6.5 29.5c-.833 9.5-2.5 29.9-2.5 35.5 0 5.6-1 19-1.5 25v58l1.5 29.5 5 33 2.5 22.5 3.5 20 4 12.5 3 10.5v16l-7 10.5c-3.167 2-9.9 6-11.5 6-1.6 0-8.667 1.67-12 2.5h-10c-5.833-1.33-18-4.1-20-4.5-2-.4-6.5-2.83-8.5-4V2807l11-28 6-24 2.5-33 1.5-28v-17.5l-4-43v-123l4-58 9.5-45 6.5-19.5v-36l3.5-28 13-106.5 8-41z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="Glut max-right" ref={(glutmaxRight) => { this.glutmaxRight = glutmaxRight; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M762 1386l29-78h24.5l22 3 23 4 20.5 7.5 17.5 10.5 59 69.5v24L943 1456l-14 36v42l-4 74 4 79-121.5-70-50-42-18-32-8-43 8-44 11-24 11.5-46z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="Glut max-left" ref={(glutmaxLeft) => { this.glutmaxLeft = glutmaxLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M650.5 1386l-29-78H597l-22 3-23 4-20.5 7.5L514 1333l-59 69.5v24l14.5 29.5 14 36v42l4 74-4 79 121.5-70 50-42 18-32 8-43-8-44-11-24-11.5-46z" stroke="#CD0F0F" strokeWidth="7" />
             <path id="PL-left" ref={(plLeft) => { this.plLeft = plLeft; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d="M468 2196.5V2163l-3.5-6-6 6-11.5 11-20 12-10.5 6.5-5.5 18.5-11 54.5-9 54.5 2.5 55.5v20l-2.5 34 4.5 35.5 4.5 27 5.5 25.5 4 35.5 3.5 46v86l3.5 11.5 10.5 7.5 8 7v-53.5l-4-80.5v-66l4-46 3.5-27 8.5-32.5v-30l4.5-47.5 4.5-48 6-38 6-45.5z" stroke="#CD0F0F" strokeWidth="7" />

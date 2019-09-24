@@ -1,0 +1,35 @@
+i {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 0 5px 4.5px 25px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.btn{
+  border-radius: 2;
+}
+
+.btn-force{
+  border-radius: 0;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-pop-up-ok{
+  margin: 12px  0 3px 0;
+  width: 100px;
+  text-align: center;
+}
+
+.btn-pop-up-review{
+  margin-left: 100px;
+  width: 300px;
+  text-align: center;
+};

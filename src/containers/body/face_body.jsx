@@ -56,18 +56,23 @@ class FaceBody extends PureComponent {
   applyColor = (force, muscle) => {
     switch (force) {
       case 1:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("one-force");
         break;
       case 2:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("two-force");
         break;
       case 3:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("three-force");
         break;
       case 4:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("four-force");
         break;
       case 5:
+        muscle.classList.remove(...muscle.classList);
         muscle.classList.add("five-force");
         break;
       default:

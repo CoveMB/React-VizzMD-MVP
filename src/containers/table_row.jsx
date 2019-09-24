@@ -11,7 +11,7 @@ class TableRow extends PureComponent {
   }
 
   btnForceClass = (force) => {
-    const classes = "btn btn-secondary btn-force";
+    const classes = "btn btn-force";
     switch (force) {
       case 1: {
         return `${classes} one-force`;
