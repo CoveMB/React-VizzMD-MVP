@@ -1,6 +1,10 @@
 import React, { PureComponent } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
+
+import { printing } from '../actions/index';
 
 class Print extends PureComponent {
   constructor(props) {
@@ -8,8 +12,18 @@ class Print extends PureComponent {
     this.state = { open: false };
   }
 
+  startPrinting = () => {
+    this.setState({ open: true });
+    this.props.printing(true);
+  }
+
+  cancelPrinting = () => {
+    this.setState({ open: false });
+    this.props.printing(false);
+  }
 
   handleReview = (event) => {
+    console.log(this.state);
     event.preventDefault();
     const popUp = typeformEmbed.makePopup(
       'https://vizz.typeform.com/to/IhOm3d',
@@ -28,15 +42,15 @@ class Print extends PureComponent {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="print">
+        <button className="btn  btn-success" onClick={this.startPrinting}>Print</button>
         <Popup
-          trigger={
-            <button className="btn  btn-success" onClick={this.openModal}>Print</button>
-          }
           modal
           position="right center"
           open={this.state.open}
+          onClose={this.cancelPrinting}
         >
           <form onSubmit={this.handleSubmit} >
             <h2>Impression en cours..</h2>
@@ -51,4 +65,11 @@ class Print extends PureComponent {
   }
 }
 
-export default Print;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { printing },
+    dispatch
+  );
+}
+
+export default connect(null, mapDispatchToProps)(Print);

@@ -45,3 +45,10 @@ export function changeMuscleForce(force, muscleInfo, musclesState) {
     payload: newMuscles
   };
 }
+
+export function printing(isPrinting) {
+  return {
+    type: actionsType.PRINTING,
+    payload: isPrinting
+  };
+}

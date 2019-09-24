@@ -10,7 +10,7 @@ import Body from '../containers/body/body';
 import Brand from '../components/brand';
 import Print from '../components/print';
 import Reset from '../components/reset';
-import MusclesTabe from '../containers/muscles_tabe';
+import MusclesTabe from '../containers/muscles_table';
 
 import ComponentToPrint from '../containers/component_to_print';
 

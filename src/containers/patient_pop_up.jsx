@@ -35,33 +35,33 @@ class PatientPopUp extends PureComponent {
 
   render() {
     return (
-      <Popup
-        trigger={
-          <button className="btn btn-grey" onClick={this.openModal}>Change reference</button>
-        }
-        modal
-        position="right center"
-        open={this.state.open}
-        onClose={this.closeModal}
-      >
-        <form onSubmit={this.handleSubmit} >
-          <div className="gradient-square">
-            <h5 id="editUserModallabel" className="gradient-square-text">What is the patient's reference?</h5>
-          </div>
-          <input
-            className="form-control patient-ref-input"
-            type="text"
-            id="ref"
-            name="ref"
-            required
-            size="15"
-            value={this.state.patient}
-            onChange={this.handleChange}
-          />
-          <button className="btn btn-grey btn-pop-up-ok float-right" type="submit">Ok</button>
-        </form>
+      <div>
+        <button className="btn btn-grey" onClick={this.openModal}>Change reference</button>
+        <Popup
+          modal
+          position="right center"
+          open={this.state.open}
+          onClose={this.closeModal}
+        >
+          <form onSubmit={this.handleSubmit} >
+            <div className="gradient-square">
+              <h5 id="editUserModallabel" className="gradient-square-text">What is the patient's reference?</h5>
+            </div>
+            <input
+              className="form-control patient-ref-input"
+              type="text"
+              id="ref"
+              name="ref"
+              required
+              size="15"
+              value={this.state.patient}
+              onChange={this.handleChange}
+            />
+            <button className="btn btn-grey btn-pop-up-ok float-right" type="submit">Ok</button>
+          </form>
 
-      </Popup>
+        </Popup>
+      </div>
     );
   }
 }
