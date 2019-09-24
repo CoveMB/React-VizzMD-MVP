@@ -26,6 +26,10 @@ class Print extends PureComponent {
     this.props.printing(false);
   }
 
+  removePrintingElement = () => {
+    this.props.printing(false);
+  }
+
   handleReview = (event) => {
     console.log(this.state);
     event.preventDefault();
@@ -49,7 +53,12 @@ class Print extends PureComponent {
     console.log(this.state);
     return (
       <div className="print">
-        <button className="btn  btn-success" onClick={this.startPrinting}>Print</button>
+        <ReactToPrint
+          trigger={() => <button className="btn  btn-success" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print</button>}
+          content={() => this.componentToPrintRef}
+          onBeforeGetContent={this.startPrinting}
+          onAfterPrint={this.removePrintingElement}
+        />
         <Popup
           modal
           position="right center"
@@ -67,10 +76,16 @@ class Print extends PureComponent {
             </div>
           </form>
         </Popup>
-
+        <ComponentToPrint ref={(el) => { this.componentToPrintRef = el; }} />
       </div>
     );
   }
+}
+
+function mapStateToProps(state) {
+  return {
+    printing: state.printing
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -80,4 +95,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(null, mapDispatchToProps)(Print);
+export default connect(mapStateToProps, mapDispatchToProps)(Print);
