@@ -9,15 +9,15 @@ class BodySelect extends PureComponent {
     if (event.target.innerText === "Back") {
       this.props.flipBody("back");
     }
-    if (event.target.innerText === "Face") {
-      this.props.flipBody("face");
+    if (event.target.innerText === "Front") {
+      this.props.flipBody("front");
     }
   }
 
   render() {
     return (
       <div className="body-select">
-        <button className="btn btn-grey" onClick={this.handleBodyFlip}>Face</button>
+        <button className="btn btn-grey" onClick={this.handleBodyFlip}>Front</button>
         <button className="btn btn-grey" onClick={this.handleBodyFlip}>Back</button>
       </div>
     );

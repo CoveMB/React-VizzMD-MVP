@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class PatientRef extends PureComponent {
   render() {
     return (
-      <h2 className="patient-ref">{this.props.patient}</h2>
+      <h2 className="patient-ref">Patient: {this.props.patient}</h2>
     );
   }
 }

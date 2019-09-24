@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import FaceBody from './face_body';
+import FrontBody from './front_body';
 import BackBody from './back_body';
 
 class Body extends PureComponent {
@@ -9,7 +9,7 @@ class Body extends PureComponent {
     if (this.props.body === "back") {
       return <BackBody backBodyViewBox={this.props.backBodyViewBox} />;
     }
-    return <FaceBody faceBodyViewbox={this.props.faceBodyViewbox} />;
+    return <FrontBody frontBodyViewbox={this.props.frontBodyViewbox} />;
   }
 
   render() {

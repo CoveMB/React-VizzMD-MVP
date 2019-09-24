@@ -13,8 +13,8 @@ class BackBody extends Component {
 
 
   buildBodyMuscleSVG = () => {
-    const faceMuscles = this.props.muscles.filter(muscle => muscle.view === "back");
-    return faceMuscles.map((muscle) => {
+    const backMuscles = this.props.muscles.filter(muscle => muscle.view === "back");
+    return backMuscles.map((muscle) => {
       return (<BodyMusclesCouple
         muscleName={muscle.name}
         key={muscle.name}
