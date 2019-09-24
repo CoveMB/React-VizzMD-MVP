@@ -10,7 +10,6 @@ class BodyMusclesCouple extends Component {
   }
 
   render() {
-    console.log("render body couples");
     const {
       muscleName,
       muscleRightSVGPath,

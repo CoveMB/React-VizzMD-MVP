@@ -19,12 +19,12 @@ class Print extends PureComponent {
         hideHeaders: true,
         hideFooters: true,
         onSubmit: () => {
-          window.location.reload();
+          // window.location.reload();
         }
       }
     );
     popUp.open();
-    // window.location.reload();
+    window.location.reload();
   }
 
   render() {
@@ -44,8 +44,8 @@ class Print extends PureComponent {
 
             <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Donnez nous votre avis!</button>
           </form>
-
         </Popup>
+
       </div>
     );
   }

@@ -4,6 +4,7 @@
 @import "popup";
 @import "body";
 @import "gradient_square";
+@import "top_actions";
 
 body {
   margin:0;
@@ -13,20 +14,4 @@ body {
 .app {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-thead {
-  text-align: center;
-}
-
-.top-actions{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-around;
-  height: 50px;
-}
-
-.patient-ref{
-  height: 20px;
-  padding: 10px 0 0 10px;
 }
