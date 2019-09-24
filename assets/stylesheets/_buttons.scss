@@ -35,7 +35,11 @@ i {
 }
 
 .btn-pop-up-review{
-  margin-left: 100px;
-  width: 300px;
   text-align: center;
-};
+}
+
+.print-btns{
+  justify-content: space-around;
+  display: flex;
+  margin-bottom: 20px;
+}

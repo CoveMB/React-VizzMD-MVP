@@ -5,9 +5,6 @@ import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
 import ReactToPrint from 'react-to-print';
 
-import Reset from './reset';
-import ComponentToPrint from '../containers/component_to_print';
-
 import { printing } from '../actions/index';
 
 class Print extends PureComponent {
@@ -57,14 +54,10 @@ class Print extends PureComponent {
           onClose={this.cancelPrinting}
         >
           <form onSubmit={this.handleSubmit} >
-            <div className="gradient-square">
-              <h5 id="editUserModallabel" className="gradient-square-text">Merci d'avoir utiliser VizzMD</h5>
-            </div>
-            <h2 className="print-pop-up-text">Impression en cours..</h2>
-            <div className="print-btns">
-              <Reset />
-              <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Donnez nous votre avis!</button>
-            </div>
+            <h2>Impression en cours..</h2>
+            <h3>Merci d'avoir utiliser VizzMD</h3>
+
+            <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Donnez nous votre avis!</button>
           </form>
         </Popup>
 

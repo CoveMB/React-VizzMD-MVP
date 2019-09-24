@@ -33,7 +33,7 @@ const App = () => {
       <PatientRef />
       <div className="scale-body">
         <Scale />
-        <Body />
+        <Body faceBodyViewbox="-200 0 1700 2830" backBodyViewBox="-200 0 1700 2840" />
       </div>
       <MusclesTabe />
       <ComponentToPrint />
