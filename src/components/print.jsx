@@ -9,7 +9,7 @@ import Reset from './reset';
 import ComponentToPrint from '../containers/component_to_print';
 import Brand from './brand';
 
-import { printing } from '../actions/index';
+import { printingToogle } from '../actions/index';
 
 class Print extends PureComponent {
   constructor(props) {
@@ -19,20 +19,19 @@ class Print extends PureComponent {
 
   startPrinting = () => {
     this.setState({ open: true });
-    this.props.printing(true);
+    this.props.printingToogle(true);
   }
 
   cancelPrinting = () => {
     this.setState({ open: false });
-    this.props.printing(false);
+    this.props.printingToogle(false);
   }
 
   removePrintingElement = () => {
-    this.props.printing(false);
+    this.props.printingToogle(false);
   }
 
   handleReview = (event) => {
-    console.log(this.state);
     event.preventDefault();
     const popUp = typeformEmbed.makePopup(
       'https://vizz.typeform.com/to/IhOm3d',
@@ -51,7 +50,7 @@ class Print extends PureComponent {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.props.printing);
     return (
       <div className="print">
         <ReactToPrint
@@ -92,7 +91,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { printing },
+    { printingToogle },
     dispatch
   );
 }

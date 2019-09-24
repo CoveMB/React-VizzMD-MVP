@@ -27,6 +27,7 @@ class BackBody extends Component {
   }
 
   render() {
+    console.log(this.props.backBodyViewBox);
     return (
       <div className="back-body">
         <svg width="100%" viewBox={this.props.backBodyViewBox} fill="none" xmlns="http://www.w3.org/2000/svg">

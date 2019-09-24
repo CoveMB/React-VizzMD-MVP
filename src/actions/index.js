@@ -46,9 +46,9 @@ export function changeMuscleForce(force, muscleInfo, musclesState) {
   };
 }
 
-export function printing(isPrinting) {
+export function printingToogle(isPrinting) {
   return {
-    type: actionsType.PRINTING,
+    type: actionsType.PRINTING_TOOGLE,
     payload: isPrinting
   };
 }

@@ -9,7 +9,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: '!!html-loader!templates/index.html'
+      template: '!!html-loader!templates/index.html',
+      favicon: "./assets/images/favicon.png"
     }),
     new webpack.HashedModuleIdsPlugin(),
   ],

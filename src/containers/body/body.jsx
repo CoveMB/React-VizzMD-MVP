@@ -7,7 +7,7 @@ import BackBody from './back_body';
 class Body extends PureComponent {
   bodyParts = () => {
     if (this.props.body === "back") {
-      return <BackBody backBodyViewbox={this.props.backBodyViewbox} />;
+      return <BackBody backBodyViewBox={this.props.backBodyViewBox} />;
     }
     return <FaceBody faceBodyViewbox={this.props.faceBodyViewbox} />;
   }

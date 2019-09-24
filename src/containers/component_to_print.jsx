@@ -9,7 +9,7 @@ class ComponentToPrint extends Component {
     return (nextProps.printing !== this.props.printing);
   }
 
-  shouldBuild = () => {
+  shouldPrintComponentBuild = () => {
     if (this.props.printing) {
       return <MusclesTabe />;
     }
@@ -18,10 +18,9 @@ class ComponentToPrint extends Component {
 
   render() {
     console.log("render printing");
-    console.log(this.props);
     return (
       <div>
-        {this.shouldBuild()}
+        {this.shouldPrintComponentBuild()}
       </div>
     );
   }
