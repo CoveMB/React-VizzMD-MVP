@@ -50,7 +50,6 @@ class Print extends PureComponent {
   }
 
   render() {
-    console.log(this.props.printing);
     return (
       <div className="print">
         <ReactToPrint

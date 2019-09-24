@@ -13,6 +13,7 @@ class PatientPopUp extends PureComponent {
 
   componentDidMount() {
     this.openModal();
+    console.log(this.patientRefInput);
   }
 
   openModal = () => {
@@ -33,6 +34,14 @@ class PatientPopUp extends PureComponent {
     this.setState({ patient: "", open: false });
   }
 
+  focusInput = () => {
+    setTimeout(() => {
+      if (this.patientRefInput) {
+        this.patientRefInput.focus();
+      }
+    }, 100);
+  }
+
   render() {
     return (
       <div>
@@ -42,6 +51,7 @@ class PatientPopUp extends PureComponent {
           position="right center"
           open={this.state.open}
           onClose={this.closeModal}
+          onOpen={this.focusInput}
         >
           <form onSubmit={this.handleSubmit} >
             <div className="gradient-square">
@@ -51,6 +61,7 @@ class PatientPopUp extends PureComponent {
               className="form-control patient-ref-input"
               type="text"
               id="ref"
+              ref={(el) => { this.patientRefInput = el; }}
               name="ref"
               required
               size="15"
