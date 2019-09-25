@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
+import NotToPrint from './hoc/not_to_print';
 // import ReactToPrint from 'react-to-print';
 
 import { Document, Page } from '@react-pdf/renderer';
@@ -24,12 +25,15 @@ class Print extends PureComponent {
     this.props.printingToogle(true);
     // const printableComponent = document.getElementById('printComponent').innerHTML;
     setTimeout(() => {
-      const printComponent = document.getElementById('printComponent').innerHTML;
-      const orderHtml = `<html><head><title></title></head><body>${printComponent}</body></html>`;
-      const oldPage = document.body.innerHTML;
-      document.body.innerHTML = orderHtml;
+      // const printComponent = document.getElementById('printComponent').innerHTML;
+      // const orderHtml = `<html><head><title></title></head><body>${printComponent}</body></html>`;
+      // const oldPage = document.body.innerHTML;
+      // document.body.innerHTML = orderHtml;
+
       window.print();
-      document.body.innerHTML = oldPage;
+      this.props.printingToogle(false);
+      this.setState({ open: true });
+      // this.props.printingToogle(false);
     }, 10);
     // console.log(this.componentToPrintRef);
     // this.printIFrame.contentWindow.document.open();
@@ -70,26 +74,28 @@ class Print extends PureComponent {
   render() {
     return (
       <div className="print">
-        <button className="btn  btn-success" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print</button>
-        <iframe id="print-iFrame" title="printIFrame" ref={(el) => { this.printIFrame = el; }} />
-        <Popup
-          modal
-          position="right center"
-          open={this.state.open}
-          onClose={this.cancelPrinting}
-        >
-          <form onSubmit={this.handleSubmit} >
-            <div className="gradient-square">
-              <h5 className="gradient-square-text">Thanks for using</h5>
-              <BrandWhite />
-            </div>
-            <h2 className="print-pop-up-text">Printing...</h2>
-            <div className="print-btns">
-              <Reset />
-              <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>
-            </div>
-          </form>
-        </Popup>
+        <NotToPrint>
+          <button className="btn  btn-success" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print</button>
+          <iframe id="print-iFrame" title="printIFrame" ref={(el) => { this.printIFrame = el; }} />
+          <Popup
+            modal
+            position="right center"
+            open={this.state.open}
+            onClose={this.cancelPrinting}
+          >
+            <form onSubmit={this.handleSubmit} >
+              <div className="gradient-square">
+                <h5 className="gradient-square-text">Thanks for using</h5>
+                <BrandWhite />
+              </div>
+              <h2 className="print-pop-up-text">Printing...</h2>
+              <div className="print-btns">
+                <Reset />
+                <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>
+              </div>
+            </form>
+          </Popup>
+        </NotToPrint>
         <div style={{ display: "block" }} ><ComponentToPrint printableId="printComponent" ref={(el) => { this.componentToPrintRef = el; }} /></div>
       </div>
     );
