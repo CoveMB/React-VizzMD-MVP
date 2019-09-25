@@ -15,6 +15,10 @@ class PatientPopUp extends PureComponent {
     this.openModal();
   }
 
+  componentDidUpdate() {
+    this.closeModal();
+  }
+
   openModal = () => {
     this.setState({ open: true });
   }

@@ -31,8 +31,8 @@ class Print extends PureComponent {
       // document.body.innerHTML = orderHtml;
 
       window.print();
-      this.props.printingToogle(false);
-      this.setState({ open: true });
+      // this.props.printingToogle(false);
+      // this.setState({ open: true });
       // this.props.printingToogle(false);
     }, 10);
     // console.log(this.componentToPrintRef);
