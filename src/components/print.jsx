@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
 import NotToPrint from './hoc/not_to_print';
-// import ReactToPrint from 'react-to-print';
-
-import { Document, Page } from '@react-pdf/renderer';
 
 import Reset from './reset';
 import ComponentToPrint from '../containers/component_to_print';
@@ -23,28 +20,13 @@ class Print extends PureComponent {
   startPrinting = () => {
     this.setState({ open: true });
     this.props.printingToogle(true);
-    // const printableComponent = document.getElementById('printComponent').innerHTML;
     setTimeout(() => {
-      // const printComponent = document.getElementById('printComponent').innerHTML;
-      // const orderHtml = `<html><head><title></title></head><body>${printComponent}</body></html>`;
-      // const oldPage = document.body.innerHTML;
-      // document.body.innerHTML = orderHtml;
-
       window.print();
       setTimeout(() => {
         this.props.printingToogle(false);
         this.setState({ open: true });
       }, 1000);
-      // this.props.printingToogle(false);
-      // this.setState({ open: true });
-      // this.props.printingToogle(false);
     }, 10);
-    // console.log(this.componentToPrintRef);
-    // this.printIFrame.contentWindow.document.open();
-    // this.printIFrame.contentWindow.document.write(this.componentToPrintRef.outerHTML);
-    // this.printIFrame.contentWindow.document.close();
-    // this.printIFrame.contentWindow.focus();
-    // this.printIFrame.contentWindow.print();
   }
 
   cancelPrinting = () => {
@@ -79,7 +61,7 @@ class Print extends PureComponent {
     return (
       <div className="print">
         <NotToPrint>
-          <button className="btn  btn-success" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print</button>
+          <button className="btn  btn-success print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print</button>
           <iframe id="print-iFrame" title="printIFrame" ref={(el) => { this.printIFrame = el; }} />
           <Popup
             modal
@@ -93,7 +75,7 @@ class Print extends PureComponent {
                 <BrandWhite />
               </div>
               <h2 className="print-pop-up-text">Printing...</h2>
-              <div className="print-btns">
+              <div className="print-pop-up-btns">
                 <Reset />
                 <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>
               </div>

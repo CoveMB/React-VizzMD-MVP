@@ -46,6 +46,13 @@ export function changeMuscleForce(force, muscleInfo, musclesState) {
   };
 }
 
+export function pageLoaded() {
+  return {
+    type: actionsType.PAGE_LOADED,
+    payload: false
+  };
+}
+
 export function printingToogle(isPrinting) {
   return {
     type: actionsType.PRINTING_TOOGLE,

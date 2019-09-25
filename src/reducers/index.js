@@ -4,9 +4,11 @@ import MusclesReducer from './muscles_reducer';
 import MuscleReducer from './muscle_reducer';
 import BodyReducer from './body_reducer';
 import PrintReducer from './print_reducer';
+import PageLoadReducer from './page_load_reducer';
 
 // State and reducers
 const rootReducer = combineReducers({
+  firstPageLoad: PageLoadReducer,
   patient: PatientReducer,
   muscles: MusclesReducer,
   selectedMuscle: MuscleReducer,
