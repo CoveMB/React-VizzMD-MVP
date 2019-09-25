@@ -15,7 +15,7 @@ class ComponentToPrint extends Component {
   shouldPrintComponentBuild = () => {
     if (this.props.printing) {
       return (
-        <div >
+        <div id={this.props.printableId}>
           <div className="print-container print-brand-section">
             <div className="print-item">
               <Brand />
