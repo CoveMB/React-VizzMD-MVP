@@ -51,6 +51,7 @@ class PatientPopUp extends PureComponent {
         <button className="btn btn-grey" onClick={this.openModal}>Change reference</button>
         <Popup
           modal
+          className="pop-up-print"
           position="right center"
           open={this.state.open}
           onClose={this.closeModal}
