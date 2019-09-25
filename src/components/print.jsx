@@ -7,7 +7,7 @@ import ReactToPrint from 'react-to-print';
 
 import Reset from './reset';
 import ComponentToPrint from '../containers/component_to_print';
-import logo from '../../assets/images/icon.png';
+import BrandWhite from '../components/brand_white';
 
 import { printingToogle } from '../actions/index';
 
@@ -68,7 +68,7 @@ class Print extends PureComponent {
           <form onSubmit={this.handleSubmit} >
             <div className="gradient-square">
               <h5 className="gradient-square-text">Thanks for using</h5>
-              <img src={logo} className="print-icon" alt="VizzMD logo" height="80" width="70" />
+              <BrandWhite />
             </div>
             <h2 className="print-pop-up-text">Printing...</h2>
             <div className="print-btns">
