@@ -70,7 +70,7 @@ class Print extends PureComponent {
               <h5 className="gradient-square-text">Thanks for using</h5>
               <img src={logo} className="print-icon" alt="VizzMD logo" height="80" width="70" />
             </div>
-            <h2 className="print-pop-up-text">Printing..</h2>
+            <h2 className="print-pop-up-text">Printing...</h2>
             <div className="print-btns">
               <Reset />
               <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>

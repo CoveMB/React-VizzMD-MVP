@@ -13,7 +13,6 @@ class PatientPopUp extends PureComponent {
 
   componentDidMount() {
     this.openModal();
-    console.log(this.patientRefInput);
   }
 
   openModal = () => {
