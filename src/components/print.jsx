@@ -77,7 +77,7 @@ class Print extends PureComponent {
             </div>
           </form>
         </Popup>
-        <ComponentToPrint ref={(el) => { this.componentToPrintRef = el; }} />
+        <div style={{ display: "none" }}><ComponentToPrint ref={(el) => { this.componentToPrintRef = el; }} /></div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 @media print{
     @page {
       size: landscape;
+      height: 99%;
     }
 
     .print-container{
