@@ -1,82 +1,86 @@
-// @media print{
-//     // @page {
-//     //   size: landscape;
-//     //   height: 99%;
-//     // }
-//
-//     body {
-//       padding-top: 80px;
-//       -webkit-transform: rotate(-90deg);
-//           -ms-transform: rotate(-90deg);
-//             -o-transform:rotate(-90deg);
-//              -moz-transform: rotate(90);
-//               transform: rotate(-90deg);
-//     }
-//
-//     .print-container{
-//       display: table;
-//       width: 100%;
-//       display: flex;
-//       justify-content: space-between;
-//     }
-//
-//     .print-brand-section{
-//       color: #054086;
-//       width: 100%;
-//       border-bottom: 2px solid #054086;
-//     }
-//
-//     .print-item{
-//       display: inline-block;
-//       padding: 10px;
-//     }
-//
-//     .patient-ref{
-//       margin-right: 30px;
-//     }
-//
-//     .table {
-//       padding: 0;
-//       margin-top: 20px;
-//       width: 100%;
-//       font-size: 15px;
-//       text-align: center;
-//     }
-//
-//     .table .thead-light th {
-//       color: black;
-//     }
-//
-//     .table tr td {
-//       padding: 2.9px;
-//       margin: 0;
-//       text-align: center;
-//     }
-//
-//     .btn-force{
-//       font-size: 12px;
-//       padding: 0;
-//       margin: 0;
-//       text-align: center;
-//     }
-//
-//     .print-body-part{
-//       display: inline-block;
-//       width: 15vw;
-//       height: 80vh;
-//       margin: 65px 0 0 0;
-//       padding: 0;
-//     }
-//
-//     .print-table{
-//       width: 40vw;
-//       // height: 90vh;
-//       padding: 0;
-//       margin: 0;
-//       display: inline-block;
-//     }
-//
-//     i {
-//       display: none;
-//     }
-//   }
+@media print{
+
+  tr {  
+      -webkit-print-color-adjust: exact;
+    }
+    // @page {
+    //   size: landscape;
+    //   height: 99%;
+    // }
+
+    // body {
+    //   padding-top: 80px;
+    //   -webkit-transform: rotate(-90deg);
+    //       -ms-transform: rotate(-90deg);
+    //         -o-transform:rotate(-90deg);
+    //          -moz-transform: rotate(90);
+    //           transform: rotate(-90deg);
+    // }
+    //
+    // .print-container{
+    //   display: table;
+    //   width: 100%;
+    //   display: flex;
+    //   justify-content: space-between;
+    // }
+    //
+    // .print-brand-section{
+    //   color: #054086;
+    //   width: 100%;
+    //   border-bottom: 2px solid #054086;
+    // }
+    //
+    // .print-item{
+    //   display: inline-block;
+    //   padding: 10px;
+    // }
+    //
+    // .patient-ref{
+    //   margin-right: 30px;
+    // }
+    //
+    // .table {
+    //   padding: 0;
+    //   margin-top: 20px;
+    //   width: 100%;
+    //   font-size: 15px;
+    //   text-align: center;
+    // }
+    //
+    // .table .thead-light th {
+    //   color: black;
+    // }
+    //
+    // .table tr td {
+    //   padding: 2.9px;
+    //   margin: 0;
+    //   text-align: center;
+    // }
+    //
+    // .btn-force{
+    //   font-size: 12px;
+    //   padding: 0;
+    //   margin: 0;
+    //   text-align: center;
+    // }
+    //
+    // .print-body-part{
+    //   display: inline-block;
+    //   width: 15vw;
+    //   height: 80vh;
+    //   margin: 65px 0 0 0;
+    //   padding: 0;
+    // }
+    //
+    // .print-table{
+    //   width: 40vw;
+    //   // height: 90vh;
+    //   padding: 0;
+    //   margin: 0;
+    //   display: inline-block;
+    // }
+    //
+    // i {
+    //   display: none;
+    // }
+  }
