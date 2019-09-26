@@ -24,10 +24,10 @@ class Print extends PureComponent {
     this.props.printingToogle(true);
     setTimeout(() => {
       window.print();
-      // setTimeout(() => {
-      //   this.props.printingToogle(false);
-      //   this.setState({ open: true });
-      // }, 800);
+      setTimeout(() => {
+        this.props.printingToogle(false);
+        this.setState({ open: true });
+      }, 800);
     }, 10);
   }
 
