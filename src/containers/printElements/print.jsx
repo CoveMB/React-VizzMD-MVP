@@ -20,7 +20,8 @@ class Print extends PureComponent {
     const iframe = document.frames ? document.frames[" printRecap"] : document.getElementById("printRecap");
     const iframeWindow = iframe.contentWindow || iframe;
     iframe.focus();
-    iframeWindow.print();
+    // iframeWindow.print();
+    iframeWindow.queryCommandSupported("print");
   }
 
   cancelPrinting = () => {
