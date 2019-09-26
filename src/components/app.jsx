@@ -11,7 +11,6 @@ import Brand from '../components/brand';
 import Print from '../containers/printElements/print';
 import Reset from '../components/reset';
 import MusclesTabe from '../containers/muscles_table';
-import NotToPrint from '../containers/hoc/not_to_print';
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'production') {
   ReactGA.initialize('UA-148344671-2');
@@ -21,24 +20,22 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'production') {
 const App = () => {
   return (
     <div>
-      <Print />
-      <NotToPrint>
-        <div className="app">
-          <div className="top-actions">
-            <Brand />
-            <PatientPopUp />
-            <BodySelect />
-            <Reset />
-          </div>
-          <MusclePopUp />
-          <PatientRef />
-          <div className="scale-body">
-            <Scale />
-            <Body frontBodyViewbox="-200 0 1700 2830" backBodyViewBox="-200 0 1700 2840" />
-          </div>
-          <MusclesTabe />
+      <div className="app">
+        <div className="top-actions">
+          <Brand />
+          <PatientPopUp />
+          <BodySelect />
+          <Reset />
+          <Print />
         </div>
-      </NotToPrint>
+        <MusclePopUp />
+        <PatientRef />
+        <div className="scale-body">
+          <Scale />
+          <Body frontBodyViewbox="-200 0 1700 2830" backBodyViewBox="-200 0 1700 2840" />
+        </div>
+        <MusclesTabe />
+      </div>
     </div>
   );
 };

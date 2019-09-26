@@ -5,9 +5,16 @@
   }
 
   body {
-    margin: 1.6cm;
-    width: 100vw;
-    height: 100%;
+    // margin: 1.6cm;
+    // width: 100vw;
+    // height: 100%;
+    width: 100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    margin: auto;
+    margin-top: 0px !important;
   }
 
   tr {
@@ -16,10 +23,17 @@
   }
 
   #printComponent{
+    width: 100%;
+    height:100%;
+    // position:absolute;
+    // top:0px;
+    // bottom:0px;
+    // margin: auto;
+    // margin-top: 0px !important;
     margin: 80px 0 80px 0;
-    width: 100vw;
-    height: 100%;
-    padding: 0;
+    // width: 100vw;
+    // height: 100%;
+    // padding: 0;
     -webkit-transform: rotate(-90deg);
         -ms-transform: rotate(-90deg);
           -o-transform:rotate(-90deg);

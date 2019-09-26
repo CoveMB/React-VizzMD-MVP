@@ -52,10 +52,3 @@ export function pageLoaded() {
     payload: false
   };
 }
-
-export function printingToogle(isPrinting) {
-  return {
-    type: actionsType.PRINTING_TOOGLE,
-    payload: isPrinting
-  };
-}
