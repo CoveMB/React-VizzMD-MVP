@@ -25,11 +25,6 @@ class Print extends PureComponent {
 
   cancelPrinting = () => {
     this.setState({ open: false });
-    this.props.printingToogle(false);
-  }
-
-  removePrintingElement = () => {
-    this.props.printingToogle(false);
   }
 
   handleReview = (event) => {
