@@ -8,10 +8,10 @@ import BodySelect from '../containers/body/body_select';
 import Scale from '../components/scale';
 import Body from '../containers/body/body';
 import Brand from '../components/brand';
-import Print from '../components/print';
+import Print from '../containers/printElements/print';
 import Reset from '../components/reset';
 import MusclesTabe from '../containers/muscles_table';
-import NotToPrint from './hoc/not_to_print';
+import NotToPrint from '../containers/hoc/not_to_print';
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'production') {
   ReactGA.initialize('UA-148344671-2');

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import PatientRef from './patient_ref';
-import Brand from '../components/brand';
-import MusclesTabe from './muscles_table';
-import FrontBody from './body/front_body';
-import BackBody from './body/back_body';
+import PatientRef from '../patient_ref';
+import Brand from '../../components/brand';
+import MusclesTabe from '../muscles_table';
+import FrontBody from '../body/front_body';
+import BackBody from '../body/back_body';
 
 class ComponentToPrint extends Component {
   shouldComponentUpdate(nextProps) {

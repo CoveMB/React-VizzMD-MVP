@@ -5,17 +5,13 @@
     // }
 
     body {
-      margin: 20px;
+      padding-top: 80px;
       -webkit-transform: rotate(-90deg);
           -ms-transform: rotate(-90deg);
             -o-transform:rotate(-90deg);
              -moz-transform: rotate(90);
               transform: rotate(-90deg);
     }
-
-    // #printComponent {
-    //   transform: rotate(25deg);
-    // }
 
     .print-container{
       display: table;
@@ -68,7 +64,7 @@
       display: inline-block;
       width: 15vw;
       height: 80vh;
-      margin-top: 65px;
+      margin: 65px 0 0 0;
       padding: 0;
     }
 

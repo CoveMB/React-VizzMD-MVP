@@ -3,13 +3,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
-import NotToPrint from './hoc/not_to_print';
+import NotToPrint from '../hoc/not_to_print';
 
-import Reset from './reset';
-import ComponentToPrint from '../containers/component_to_print';
-import BrandWhite from '../components/brand_white';
+import Reset from '../../components/reset';
+import ComponentToPrint from './component_to_print';
+import BrandWhite from '../../components/brand_white';
 
-import { printingToogle } from '../actions/index';
+import { printingToogle } from '../../actions/index';
 
 class Print extends PureComponent {
   constructor(props) {
@@ -26,7 +26,7 @@ class Print extends PureComponent {
         this.props.printingToogle(false);
         this.setState({ open: true });
       }, 1000);
-    }, 10);
+    }, 100);
   }
 
   cancelPrinting = () => {
@@ -49,7 +49,7 @@ class Print extends PureComponent {
         hideFooters: true,
         onSubmit: () => {
           setTimeout(() => {
-            window.location.reload();
+            popUp.close();
           }, 1000);
         }
       }
@@ -62,7 +62,6 @@ class Print extends PureComponent {
       <div className="print">
         <NotToPrint>
           <button className="btn  btn-success print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print</button>
-          <iframe id="print-iFrame" title="printIFrame" ref={(el) => { this.printIFrame = el; }} />
           <Popup
             modal
             position="right center"
