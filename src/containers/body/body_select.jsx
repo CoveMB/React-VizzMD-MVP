@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUndo, faRedo } from '@fortawesome/free-solid-svg-icons';
 
 import { flipBody } from '../../actions/index';
 
@@ -17,8 +19,8 @@ class BodySelect extends PureComponent {
   render() {
     return (
       <div className="body-select">
-        <button className="btn btn-blue" onClick={this.handleBodyFlip}>Front</button>
-        <button className="btn btn-blue" onClick={this.handleBodyFlip}>Back</button>
+        <button className="btn btn-blue" onClick={this.handleBodyFlip}>Front <FontAwesomeIcon icon={faRedo} /></button>
+        <button className="btn btn-blue" onClick={this.handleBodyFlip}><FontAwesomeIcon icon={faUndo} /> Back</button>
       </div>
     );
   }

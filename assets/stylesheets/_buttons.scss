@@ -6,6 +6,10 @@ i {
   margin: 0 5px 4.5px 25px;
 }
 
+.fa-w-16{
+  padding: 1px;
+}
+
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -13,6 +17,7 @@ i {
 
 .btn{
   border-radius: 4px;
+  font-size: 16px;
   font-family: 'Lato', sans-serif;
 }
 

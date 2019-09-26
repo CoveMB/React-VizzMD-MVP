@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { enterPatient, pageLoaded } from '../actions/index';
 
@@ -49,7 +51,7 @@ class PatientPopUp extends PureComponent {
   render() {
     return (
       <div>
-        <button className="btn btn-blue" onClick={this.openModal}>Change reference</button>
+        <button className="btn btn-blue" onClick={this.openModal}>Change reference <FontAwesomeIcon icon={faSearch} /></button>
         <Popup
           modal
           className="pop-up-print"
