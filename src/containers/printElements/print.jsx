@@ -25,8 +25,8 @@ class Print extends PureComponent {
       setTimeout(() => {
         this.props.printingToogle(false);
         this.setState({ open: true });
-      }, 800);
-    }, 200);
+      }, 2000);
+    }, 10);
   }
 
   cancelPrinting = () => {
