@@ -8,3 +8,7 @@
   background-color: #054086;
   color: #FFFFFF !important;
 }
+
+tr {
+  -webkit-print-color-adjust: exact;
+}
