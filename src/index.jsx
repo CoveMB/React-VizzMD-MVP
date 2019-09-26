@@ -1,7 +1,7 @@
 // external modules
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { createHistory as history } from 'history';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+// import { createHistory as history } from 'history';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';

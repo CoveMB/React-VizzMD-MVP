@@ -73,7 +73,7 @@ class Print extends PureComponent {
             </div>
           </form>
         </Popup>
-        <iframe id="printRecap" src="/print" style={{ display: 'none' }} title="printRecap" />
+        <iframe id="printRecap" src="/#/print" style={{ display: 'none' }} title="printRecap" />
       </div>
     );
   }
