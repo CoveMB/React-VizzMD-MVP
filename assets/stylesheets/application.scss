@@ -12,7 +12,7 @@
 body {
   margin:0;
   padding:0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .app {
@@ -99,6 +99,11 @@ h1 h2 h3 {
   padding: 0;
   margin: 0;
   display: inline-block;
+}
+
+.print-table .thead-light th {
+  background-color: #054086 !important;
+  color: #FFFFFF !important;
 }
 
 .print-info{

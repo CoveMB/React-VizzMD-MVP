@@ -49,7 +49,7 @@ class PatientPopUp extends PureComponent {
   render() {
     return (
       <div>
-        <button className="btn btn-grey" onClick={this.openModal}>Change reference</button>
+        <button className="btn btn-blue" onClick={this.openModal}>Change reference</button>
         <Popup
           modal
           className="pop-up-print"
@@ -73,7 +73,7 @@ class PatientPopUp extends PureComponent {
               value={this.state.patient}
               onChange={this.handleChange}
             />
-            <button className="btn btn-grey btn-pop-up-ok float-right" type="submit">Ok</button>
+            <button className="btn btn-blue btn-pop-up-ok float-right" type="submit">Ok</button>
           </form>
 
         </Popup>

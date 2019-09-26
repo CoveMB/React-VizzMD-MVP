@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import NotToPrint from '../hoc/not_to_print';
 
 import Reset from '../../components/reset';
@@ -61,7 +63,7 @@ class Print extends PureComponent {
     return (
       <div className="print">
         <NotToPrint>
-          <button className="btn  btn-success print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print</button>
+          <button className="btn btn-blue print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print <FontAwesomeIcon icon={faPrint} /></button>
           <Popup
             modal
             position="right center"
