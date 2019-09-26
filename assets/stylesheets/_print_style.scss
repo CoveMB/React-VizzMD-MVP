@@ -1,5 +1,10 @@
 @media print{
+  
   body {
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  tr {
     -webkit-print-color-adjust: exact !important;
   }
 
