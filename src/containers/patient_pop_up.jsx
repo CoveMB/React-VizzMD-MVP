@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 
-import { enterPatient } from '../actions/index';
+import { enterPatient, pageLoaded } from '../actions/index';
 
 class PatientPopUp extends PureComponent {
   constructor(props) {
@@ -12,8 +12,13 @@ class PatientPopUp extends PureComponent {
   }
 
   componentDidMount() {
-    this.openModal();
+    if (this.props.firstPageLoad) {
+      this.openModal();
+      this.props.pageLoaded();
+    }
   }
+
+  pageLoaded
 
   openModal = () => {
     this.setState({ open: true });
@@ -47,6 +52,7 @@ class PatientPopUp extends PureComponent {
         <button className="btn btn-grey" onClick={this.openModal}>Change reference</button>
         <Popup
           modal
+          className="pop-up-print"
           position="right center"
           open={this.state.open}
           onClose={this.closeModal}
@@ -76,11 +82,18 @@ class PatientPopUp extends PureComponent {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    firstPageLoad: state.firstPageLoad
+  };
+}
+
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { enterPatient },
+    { enterPatient, pageLoaded },
     dispatch
   );
 }
 
-export default connect(null, mapDispatchToProps)(PatientPopUp);
+export default connect(mapStateToProps, mapDispatchToProps)(PatientPopUp);

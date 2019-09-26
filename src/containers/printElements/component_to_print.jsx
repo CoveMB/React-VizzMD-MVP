@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import PatientRef from './patient_ref';
-import Brand from '../components/brand';
-import MusclesTabe from './muscles_table';
-import FrontBody from './body/front_body';
-import BackBody from './body/back_body';
+import PatientRef from '../patient_ref';
+import Date from '../../components/date';
+import Brand from '../../components/brand';
+import MusclesTabe from '../muscles_table';
+import FrontBody from '../body/front_body';
+import BackBody from '../body/back_body';
 
 class ComponentToPrint extends Component {
   shouldComponentUpdate(nextProps) {
@@ -15,13 +16,16 @@ class ComponentToPrint extends Component {
   shouldPrintComponentBuild = () => {
     if (this.props.printing) {
       return (
-        <div >
+        <div id={this.props.printableId}>
           <div className="print-container print-brand-section">
             <div className="print-item">
               <Brand />
             </div>
             <div className="print-item">
-              <PatientRef />
+              <div className="print-info">
+                <Date />
+                <PatientRef />
+              </div>
             </div>
           </div>
           <div className="print-container">

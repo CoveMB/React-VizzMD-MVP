@@ -25,7 +25,7 @@ i {
 }
 
 .btn-grey{
-  background-color: #7A8490;
+  background-color: #054086;
   color: #FFFFFF;
 }
 
@@ -40,8 +40,14 @@ i {
   text-align: center;
 }
 
-.print-btns{
+.print-pop-up-btns{
   justify-content: space-around;
   display: flex;
   margin-bottom: 20px;
+}
+
+.print-btn{
+  position: absolute;
+  top: 30px;
+  right: 50px;
 }
