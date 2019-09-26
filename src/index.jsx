@@ -1,7 +1,7 @@
 // external modules
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { createHistory as History } from 'history';
+import { createHistory as history } from 'history';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -17,7 +17,7 @@ const root = document.getElementById('root');
 if (root) {
   ReactDOM.render(
     <Provider store={createStore(reducers)}>
-      <Router history={History}>
+      <Router history={history}>
         <Switch>
           <Route path="/" exact component={App} />
           <Route path="/print" exact component={ComponentToPrint} />
