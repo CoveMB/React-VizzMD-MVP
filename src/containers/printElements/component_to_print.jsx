@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PatientRef from '../patient_ref';
+import Date from '../../components/date';
 import Brand from '../../components/brand';
 import MusclesTabe from '../muscles_table';
 import FrontBody from '../body/front_body';
@@ -21,7 +22,10 @@ class ComponentToPrint extends Component {
               <Brand />
             </div>
             <div className="print-item">
-              <PatientRef />
+              <div className="print-info">
+                <Date />
+                <PatientRef />
+              </div>
             </div>
           </div>
           <div className="print-container">
