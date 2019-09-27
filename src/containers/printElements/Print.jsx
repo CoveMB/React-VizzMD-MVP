@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import Reset from '../../components/Reset';
 import BrandWhite from '../../components/BrandWhite';
-import ComponentToPrint from './ComponentToPrint';
+// import ComponentToPrint from './ComponentToPrint';
 
 import { printingToogle } from '../../actions/index';
 
-// const ComponentToPrint = React.lazy(() => import('./ComponentToPrint'));
+const ComponentToPrint = React.lazy(() => import('./ComponentToPrint'));
 
 class Print extends Component {
   constructor(props) {
