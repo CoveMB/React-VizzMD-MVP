@@ -22,13 +22,7 @@ class Print extends PureComponent {
   startPrinting = () => {
     this.setState({ open: true });
     this.props.printingToogle(true);
-    setTimeout(() => {
-      window.print();
-      setTimeout(() => {
-        this.props.printingToogle(false);
-        this.setState({ open: true });
-      }, 800);
-    }, 10);
+    window.print();
   }
 
   cancelPrinting = () => {
@@ -52,6 +46,8 @@ class Print extends PureComponent {
         onSubmit: () => {
           setTimeout(() => {
             popUp.close();
+            this.props.printingToogle(false);
+            this.setState({ open: true });
           }, 1000);
         }
       }
