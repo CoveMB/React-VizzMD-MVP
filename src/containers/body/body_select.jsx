@@ -8,10 +8,10 @@ import { flipBody } from '../../actions/index';
 
 class BodySelect extends PureComponent {
   handleBodyFlip = (event) => {
-    if (event.target.innerText === "Back") {
+    if (event.target.innerText === " Back") {
       this.props.flipBody("back");
     }
-    if (event.target.innerText === "Front") {
+    if (event.target.innerText === "Front ") {
       this.props.flipBody("front");
     }
   }
