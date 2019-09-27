@@ -5,7 +5,6 @@ import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
-// import ComponentToPrint from './ComponentToPrint';
 import Reset from '../../components/Reset';
 import BrandWhite from '../../components/BrandWhite';
 
