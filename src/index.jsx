@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import reducers from './reducers';
 
 // internal modules
-import App from './components/app';
+import App from './components/App';
 import '../assets/stylesheets/application.scss';
 
 const root = document.getElementById('root');

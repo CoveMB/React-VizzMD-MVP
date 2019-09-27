@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TableRow from './table_row';
+import TableRow from './TableRow';
 
 class MusclesTabe extends Component {
   shouldComponentUpdate(nextProps) {

@@ -1,22 +1,26 @@
-import React, { PureComponent } from 'react';
+import React, { Component, Fragment, Suspense } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
 import * as typeformEmbed from '@typeform/embed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
-import NotToPrint from '../hoc/not_to_print';
-
-import Reset from '../../components/reset';
-import ComponentToPrint from './component_to_print';
-import BrandWhite from '../../components/brand_white';
+// import ComponentToPrint from './ComponentToPrint';
+import Reset from '../../components/Reset';
+import BrandWhite from '../../components/BrandWhite';
 
 import { printingToogle } from '../../actions/index';
 
-class Print extends PureComponent {
+const ComponentToPrint = React.lazy(() => import('./ComponentToPrint'));
+
+class Print extends Component {
   constructor(props) {
     super(props);
     this.state = { open: false };
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.printing !== this.props.printing);
   }
 
   startPrinting = () => {
@@ -59,7 +63,7 @@ class Print extends PureComponent {
 
   render() {
     return (
-      <div className="print">
+      <Fragment>
         <div id="not-to-be-printed">
           <button className="btn btn-blue print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print <FontAwesomeIcon icon={faPrint} /></button>
           <Popup
@@ -81,8 +85,10 @@ class Print extends PureComponent {
             </form>
           </Popup>
         </div>
-        <div style={{ display: "block" }} ><ComponentToPrint printableId="printComponent" ref={(el) => { this.componentToPrintRef = el; }} /></div>
-      </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ComponentToPrint printableId="printComponent" />
+        </Suspense>
+      </Fragment>
     );
   }
 }

@@ -1,12 +1,13 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import PatientRef from '../patient_ref';
-import Date from '../../components/date';
-import Brand from '../../components/brand';
-import MusclesTabe from '../muscles_table';
-import FrontBody from '../body/front_body';
-import BackBody from '../body/back_body';
+import PatientRef from '../PatientRef';
+import Date from '../../components/Date';
+import Brand from '../../components/Brand';
+import MusclesTable from '../MusclesTable';
+import FrontBody from '../body/FrontBody';
+import BackBody from '../body/BackBody';
 
 class ComponentToPrint extends Component {
   shouldComponentUpdate(nextProps) {
@@ -36,7 +37,7 @@ class ComponentToPrint extends Component {
               <BackBody backBodyViewBox="717 0 800 2840" />
             </div>
             <div className="print-table">
-              <MusclesTabe />;
+              <MusclesTable />
             </div>
             <div className="print-body-part">
               <BackBody backBodyViewBox="-108 0 800 2840" />

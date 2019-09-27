@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import BodyMusclesCouple from './body_muscles_couple';
+import BodyMuscleCouple from './BodyMuscleCouple';
 
 import { selectMuscle } from '../../actions/index';
 
@@ -15,7 +15,7 @@ class BackBody extends Component {
   buildBodyMuscleSVG = () => {
     const backMuscles = this.props.muscles.filter(muscle => muscle.view === "back");
     return backMuscles.map((muscle) => {
-      return (<BodyMusclesCouple
+      return (<BodyMuscleCouple
         muscleName={muscle.name}
         key={muscle.name}
         muscleRightSVGPath={muscle.svgPathRight}
