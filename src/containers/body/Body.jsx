@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import FrontBody from './front_body';
-import BackBody from './back_body';
+import FrontBody from './FrontBody';
+import BackBody from './BackBody';
 
 class Body extends PureComponent {
   bodyParts = () => {

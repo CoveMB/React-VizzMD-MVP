@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import BodyMucle from './body_muscle';
+import BodyMuscle from './BodyMuscle';
 
 class BodyMusclesCouple extends Component {
   shouldComponentUpdate(nextProps) {
@@ -18,13 +18,13 @@ class BodyMusclesCouple extends Component {
       muscleLeftForce } = this.props;
     return (
       [
-        <BodyMucle
+        <BodyMuscle
           key={`${muscleName}-right`}
           muscleId={`${muscleName}-right`}
           muscleSVGPath={muscleRightSVGPath}
           muscleForce={muscleRightForce}
         />,
-        <BodyMucle
+        <BodyMuscle
           key={`${muscleName}-left`}
           muscleId={`${muscleName}-left`}
           muscleSVGPath={muscleLeftSVGPath}
