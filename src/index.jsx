@@ -10,7 +10,7 @@ import reducers from './reducers';
 import App from './components/App';
 import '../assets/stylesheets/application.scss';
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+if ((!process.env.NODE_ENV || process.env.NODE_ENV === 'development') && window.location.href.match(/vizzmd.netlify.com/)) {
   const tagManagerArgs = {
     gtmId: 'GTM-MM93V8P'
   };
