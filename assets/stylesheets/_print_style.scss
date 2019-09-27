@@ -6,12 +6,16 @@
 
   body {
     margin: 1.6cm;
-    background-color: black;
   }
 
   tr {
-      -webkit-print-color-adjust: exact;
-    }
+    -webkit-print-color-adjust: exact;
+  }
+
+  #not-to-be-printed{
+    display: none;
+  }
+
   }
 
   #printComponent{

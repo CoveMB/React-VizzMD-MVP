@@ -62,7 +62,7 @@ class Print extends PureComponent {
   render() {
     return (
       <div className="print">
-        <NotToPrint>
+        <div id="not-to-be-printed">
           <button className="btn btn-blue print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print <FontAwesomeIcon icon={faPrint} /></button>
           <Popup
             modal
@@ -82,7 +82,7 @@ class Print extends PureComponent {
               </div>
             </form>
           </Popup>
-        </NotToPrint>
+        </div>
         <div style={{ display: "block" }} ><ComponentToPrint printableId="printComponent" ref={(el) => { this.componentToPrintRef = el; }} /></div>
       </div>
     );
