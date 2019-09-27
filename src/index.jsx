@@ -10,14 +10,14 @@ import reducers from './reducers';
 import App from './components/App';
 import '../assets/stylesheets/application.scss';
 
-if ((!process.env.NODE_ENV || process.env.NODE_ENV === 'development') && window.location.href.match(/vizzmd.netlify.com/)) {
+if (window.location.href.match(/vizzmd.netlify.com/)) {
+  console.log(" here");
   const tagManagerArgs = {
     gtmId: 'GTM-MM93V8P'
   };
 
   TagManager.initialize(tagManagerArgs);
 }
-
 
 const root = document.getElementById('root');
 // render an instance of the component in the DOM
