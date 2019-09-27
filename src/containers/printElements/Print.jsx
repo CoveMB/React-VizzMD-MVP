@@ -65,7 +65,7 @@ class Print extends Component {
     return (
       <Fragment>
         <div id="not-to-be-printed">
-          <button className="btn btn-blue print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print <FontAwesomeIcon icon={faPrint} /></button>
+          <button id="gta-print-btn" className="btn btn-blue print-btn" ref={(el) => { this.printingBtn = el; }} onClick={this.startPrinting}>Print <FontAwesomeIcon icon={faPrint} /></button>
           <Popup
             modal
             position="right center"
