@@ -31,19 +31,19 @@ class ComponentToPrint extends Component {
           </div>
           <div className="print-container">
             <div className="print-body-part">
-              <FrontBody frontBodyViewbox="-117 0 800 2830" />
+              <FrontBody frontBodyViewbox="-18 0 700 2830" />
             </div>
             <div className="print-body-part">
-              <BackBody backBodyViewBox="717 0 800 2840" />
+              <BackBody backBodyViewBox="717 0 700 2840" />
             </div>
             <div className="print-table">
               <MusclesTable />
             </div>
             <div className="print-body-part">
-              <BackBody backBodyViewBox="-108 0 800 2840" />
+              <BackBody backBodyViewBox="-18 0 700 2840" />
             </div>
             <div className="print-body-part">
-              <FrontBody frontBodyViewbox="675 0 800 2830" />
+              <FrontBody frontBodyViewbox="675 0 700 2830" />
             </div>
           </div>
         </div>
