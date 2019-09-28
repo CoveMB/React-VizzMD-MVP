@@ -72,15 +72,17 @@ class Print extends Component {
             open={this.state.open}
             onClose={this.cancelPrinting}
           >
-            <div className="gradient-square">
-              <h5 className="gradient-square-text">Thanks for using</h5>
-              <BrandWhite />
-            </div>
-            <h2 className="print-pop-up-text">Printing...</h2>
-            <div className="print-pop-up-btns">
-              <Reset />
-              <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>
-            </div>
+            <Fragment>
+              <div className="gradient-square">
+                <h5 className="gradient-square-text">Thanks for using</h5>
+                <BrandWhite />
+              </div>
+              <h2 className="print-pop-up-text">Printing...</h2>
+              <div className="print-pop-up-btns">
+                <Reset />
+                <button onClick={this.handleReview} className="btn btn-secondary btn-pop-up-review" type="submit">Tell us what you think!</button>
+              </div>
+            </Fragment>
           </Popup>
         </div>
         <Suspense fallback={<div>Loading...</div>}>

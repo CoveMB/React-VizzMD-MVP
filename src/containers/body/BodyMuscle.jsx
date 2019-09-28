@@ -5,43 +5,24 @@ import { connect } from 'react-redux';
 import { selectMuscle } from '../../actions/index';
 
 class BodyMusclesCouple extends Component {
-  componentDidMount() {
-    this.applyColorToMuscle(this.props.muscleForce, this.muscleSVG);
-  }
-
   shouldComponentUpdate(nextProps) {
     return (this.props.muscleForce !== nextProps.muscleForce);
   }
 
-  componentDidUpdate() {
-    this.applyColorToMuscle(this.props.muscleForce, this.muscleSVG);
-  }
-
-  applyColorToMuscle = (force, muscle) => {
-    switch (force) {
+  muscleClass = () => {
+    switch (this.props.muscleForce) {
       case 1:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("one-force");
-        break;
+        return "one-force";
       case 2:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("two-force");
-        break;
+        return "two-force";
       case 3:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("three-force");
-        break;
+        return "three-force";
       case 4:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("four-force");
-        break;
+        return "four-force";
       case 5:
-        muscle.classList.remove(...muscle.classList);
-        muscle.classList.add("five-force");
-        break;
+        return "five-force";
       default:
-        muscle.classList.remove(...muscle.classList);
-        break;
+        return "zero-force";
     }
   }
 
@@ -51,8 +32,9 @@ class BodyMusclesCouple extends Component {
   }
 
   render() {
+    console.log("render");
     return (
-      <path id={this.props.muscleId} ref={(muscleSVG) => { this.muscleSVG = muscleSVG; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d={this.props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
+      <path id={this.props.muscleId} className={this.muscleClass()} ref={(muscleSVG) => { this.muscleSVG = muscleSVG; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d={this.props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
     );
   }
 }
