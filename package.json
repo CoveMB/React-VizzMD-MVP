@@ -51,11 +51,11 @@
     "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "next",
+    "start": "serve ./out",
     "build": "next build src",
     "dev": "next dev src",
     "export": "next export",
-    "deploy": "yarn build && yarn export",
+    "deploy": "next build src && next export",
     "start2": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'"
   },
