@@ -1,15 +1,19 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import FrontBody from './FrontBody';
-import BackBody from './BackBody';
+// import FrontBody from './FrontBody';
+import FaceBody from './FaceBody';
 
-class Body extends PureComponent {
+class Body extends Component {
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.body !== this.props.body);
+  }
+
   bodyParts = () => {
     if (this.props.body === "back") {
-      return <BackBody backBodyViewBox={this.props.backBodyViewBox} />;
+      return <FaceBody svgViewBox={this.props.backBodyViewBox} bodySide="back" />;
     }
-    return <FrontBody frontBodyViewbox={this.props.frontBodyViewbox} />;
+    return <FaceBody svgViewBox={this.props.frontBodyViewbox} bodySide="front" />;
   }
 
   render() {
