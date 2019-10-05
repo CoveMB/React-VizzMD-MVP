@@ -7,9 +7,9 @@ const Reset = () => {
     window.location.reload();
   };
   return (
-    <div className="reset">
-      <button className="btn btn-danger" onClick={reload}>Next patient <FontAwesomeIcon icon={faSyncAlt} /></button>
-    </div>
+
+    <button className="btn btn-danger reset" onClick={reload}>Next patient <FontAwesomeIcon icon={faSyncAlt} /></button>
+
   );
 };
 

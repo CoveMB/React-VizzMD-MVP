@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Popup from "reactjs-popup";
@@ -48,7 +48,7 @@ class PatientPopUp extends PureComponent {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <button className="btn btn-blue" onClick={this.openModal}>Change reference <FontAwesomeIcon icon={faSearch} /></button>
         <Popup
           modal
@@ -77,7 +77,7 @@ class PatientPopUp extends PureComponent {
           </form>
 
         </Popup>
-      </div>
+      </Fragment>
     );
   }
 }
