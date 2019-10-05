@@ -1,1 +1,0 @@
-{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport { connect } from \"react-redux\";\nimport ComponentToPrint from '../../containers/printElements/ComponentToPrint';\n\nconst printPage = () => {\n  return __jsx(ComponentToPrint, null);\n};\n\nexport default connect(state => state)(printPage);","map":null,"metadata":{},"sourceType":"module"}

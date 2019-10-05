@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { PATIENT_ENTERED } from '../actions/actionsTypes';\nexport default function (state = null, action) {\n  switch (action.type) {\n    case PATIENT_ENTERED:\n      {\n        return action.payload;\n      }\n\n    default:\n      {\n        return state;\n      }\n  }\n}","map":null,"metadata":{},"sourceType":"module"}

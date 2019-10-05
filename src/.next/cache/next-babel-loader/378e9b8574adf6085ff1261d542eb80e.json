@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { createStore } from 'redux';\nimport reducers from '../reducers';\n\nconst makeStore = initialState => {\n  return createStore(reducers, initialState);\n};\n\nexport default makeStore;","map":null,"metadata":{},"sourceType":"module"}
