@@ -2,16 +2,13 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import TagManager from 'react-gtm-module';
 
-if (typeof window !== 'undefined') {
-  console.log("here 1");
-  if (window.location.href.match(/test-vizzmd-test.netlify/)) {
-    console.log("here 2");
-    const tagManagerArgs = {
-      gtmId: 'GTM-MM93V8P'
-    };
+if (window.location.href.match(/test-vizzmd-test.netlify/)) {
+  console.log("here 2");
+  const tagManagerArgs = {
+    gtmId: 'GTM-MM93V8P'
+  };
 
-    TagManager.initialize(tagManagerArgs);
-  }
+  TagManager.initialize(tagManagerArgs);
 }
 
 class MyDocument extends Document {
