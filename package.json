@@ -21,7 +21,7 @@
     "gh-pages": "^1.2.0",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^1.0.0",
@@ -30,11 +30,16 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "babel-preset-env": "^7.0.0-beta.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@typeform/embed": "^0.12.1",
+    "@zeit/next-css": "1.0.1",
+    "@zeit/next-sass": "1.0.1",
     "moment": "^2.24.0",
+    "next": "^9.0.8-canary.5",
+    "next-redux-wrapper": "^4.0.1",
     "react": "16.6",
     "react-dom": "16.6",
     "react-ga": "^2.6.0",
@@ -46,9 +51,12 @@
     "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
-    "deploy": "webpack -p && gh-pages -d dist"
+    "start": "serve ./out",
+    "build": "next build",
+    "dev": "next dev",
+    "export": "next export",
+    "deploy": "next build && next export",
+    "lint": "eslint './src/**/*.js' './src/**/*.jsx'"
   },
   "homepage": "http://BjMrq.github.io/React-VizzMD-MVP"
 }

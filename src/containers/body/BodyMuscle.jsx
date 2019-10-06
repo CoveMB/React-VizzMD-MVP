@@ -32,7 +32,6 @@ class BodyMusclesCouple extends Component {
   }
 
   render() {
-    console.log("render");
     return (
       <path id={this.props.muscleId} className={this.muscleClass()} ref={(muscleSVG) => { this.muscleSVG = muscleSVG; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d={this.props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
     );

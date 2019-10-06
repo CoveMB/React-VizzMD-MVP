@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Ubuntu:400,700&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 @import "scale";
 @import "table";
@@ -16,8 +18,8 @@ body {
 }
 
 .app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 h1 h2 h3 {

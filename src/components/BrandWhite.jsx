@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from '../../assets/images/logo_white.png';
+// import logo from '../../static/logo_white.png';
 
 const BrandWhite = () => {
   return (
     <div className="brand">
-      <img src={logo} alt="VizzMD logo" height="60" width="160" />
+      <img src="../../static/images/logo_white.png" alt="VizzMD logo" height="60" width="160" />
     </div>
   );
 };

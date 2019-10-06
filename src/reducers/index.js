@@ -3,7 +3,6 @@ import PatientReducer from './patient_reducer';
 import MusclesReducer from './muscles_reducer';
 import MuscleReducer from './muscle_reducer';
 import BodyReducer from './body_reducer';
-import PrintReducer from './print_reducer';
 import PageLoadReducer from './page_load_reducer';
 
 // State and reducers
@@ -12,8 +11,7 @@ const rootReducer = combineReducers({
   patient: PatientReducer,
   muscles: MusclesReducer,
   selectedMuscle: MuscleReducer,
-  body: BodyReducer,
-  printing: PrintReducer
+  body: BodyReducer
 });
 
 export default rootReducer;
