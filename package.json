@@ -56,7 +56,6 @@
     "dev": "next dev",
     "export": "next export",
     "deploy": "next build && next export",
-    "start2": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'"
   },
   "homepage": "http://BjMrq.github.io/React-VizzMD-MVP"

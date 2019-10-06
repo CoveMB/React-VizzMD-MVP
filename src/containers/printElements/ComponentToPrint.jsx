@@ -40,10 +40,10 @@ class ComponentToPrint extends Component {
               <MusclesTable />
             </div>
             <div className="print-body-part">
-              <FaceBody svgViewBox="-18 0 700 2840" bodySide="front" />
+              <FaceBody svgViewBox="-18 0 700 2830" bodySide="front" />
             </div>
             <div className="print-body-part">
-              <FaceBody svgViewBox="675 0 700 2830" bodySide="back" />
+              <FaceBody svgViewBox="717 0 700 2840" bodySide="back" />
             </div>
           </div>
         </div>
