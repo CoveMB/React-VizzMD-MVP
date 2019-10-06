@@ -8,7 +8,9 @@ import '../static/css/application.scss';
 
 const rootPage = () => {
   return (
+
     <App />
+
   );
 };
 
