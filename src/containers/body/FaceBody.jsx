@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import dynamic from 'next/dynamic';
+import BodyMuscleCouple from './BodyMuscleCouple';
 
 import { selectMuscle } from '../../actions/index';
-
-const BodyMuscleCouple = dynamic(() => import('./BodyMuscleCouple'));
 
 class BackBody extends Component {
   shouldComponentUpdate(nextProps) {
