@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-// import FrontBody from './FrontBody';
 import FaceBody from './FaceBody';
 
 class Body extends Component {

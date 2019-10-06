@@ -3,7 +3,7 @@ import TagManager from 'react-gtm-module';
 
 class GtmScript extends Component {
   componentDidMount() {
-    if (window.location.href.match(/test-vizzmd-test.netlify/)) {
+    if (window.location.href.match(/vizzmd.netlify/)) {
       const tagManagerArgs = {
         gtmId: 'GTM-MM93V8P'
       };

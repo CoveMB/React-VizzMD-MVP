@@ -21,7 +21,6 @@ class MyApp extends App {
           <Component {...pageProps} />
         </Provider>
       </WithGtmScript>
-
     );
   }
 }

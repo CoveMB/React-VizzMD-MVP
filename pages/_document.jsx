@@ -1,6 +1,5 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import GtmScript from '../src/components/GtmScript';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -16,7 +15,6 @@ class MyDocument extends Document {
         <Head>
           <title>VizzMD</title>
           <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.png" />
-          <GtmScript />
         </Head>
         <body>
           <Main />
