@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import dynamic from 'next/dynamic';
-
-const BodyMuscle = dynamic(() => import('./BodyMuscle'));
+import BodyMuscle from './BodyMuscle';
 
 class BodyMusclesCouple extends Component {
   shouldComponentUpdate(nextProps) {
