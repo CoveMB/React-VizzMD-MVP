@@ -2,6 +2,7 @@ import withRedux from "next-redux-wrapper";
 import React from "react";
 import { Provider } from "react-redux";
 import App from "next/app";
+import Head from 'next/head';
 import makeStore from '../src/store/makeStore';
 
 class MyApp extends App {
