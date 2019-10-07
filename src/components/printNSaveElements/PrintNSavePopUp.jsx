@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
 import Popup from "reactjs-popup";
-import * as JsPDF from 'jspdf';
 import { connect } from 'react-redux';
 // import dynamic from 'next/dynamic';
 import Router from 'next/router';
@@ -8,10 +7,18 @@ import HomeBtn from '../../components/HomeBtn';
 import BrandWhite from '../../components/BrandWhite';
 import TypeFormBtn from '../TypeFormBtn';
 import Spinner from '../Spinner';
-import html2canvas from 'html2canvas';
 
-if (typeof window !== 'undefined') { require('html2canvas'); }
+import html2canvas from 'html2canvas';
+// if (typeof window !== 'undefined') { require('html2canvas'); }
 // const html2canvas = dynamic(import('html2canvas'), { ssr: false });
+
+
+let JsPDF = null;
+if (typeof window !== "undefined") {
+  import("jspdf").then((module) => {
+    JsPDF = module.default;
+  });
+}
 
 const backHome = () => {
   Router.push("/");
@@ -50,8 +57,8 @@ class PrintNSavePopUp extends Component {
   }
 
   generatePdf = () => {
-    this.setState({ ...this.state, loading: true });
     if (process.browser) {
+      this.setState({ ...this.state, loading: true });
       html2canvas(document.getElementById('printComponent')).then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = this.createPdf(imgData);
