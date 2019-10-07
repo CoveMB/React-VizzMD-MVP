@@ -1,13 +1,17 @@
 import React, { Fragment, Component } from 'react';
 import Popup from "reactjs-popup";
-import html2canvas from 'html2canvas';
 import * as JsPDF from 'jspdf';
 import { connect } from 'react-redux';
+// import dynamic from 'next/dynamic';
 import Router from 'next/router';
 import HomeBtn from '../../components/HomeBtn';
 import BrandWhite from '../../components/BrandWhite';
 import TypeFormBtn from '../TypeFormBtn';
 import Spinner from '../Spinner';
+import html2canvas from 'html2canvas';
+
+if (typeof window !== 'undefined') { require('html2canvas'); }
+// const html2canvas = dynamic(import('html2canvas'), { ssr: false });
 
 const backHome = () => {
   Router.push("/");
@@ -47,14 +51,16 @@ class PrintNSavePopUp extends Component {
 
   generatePdf = () => {
     this.setState({ ...this.state, loading: true });
-    html2canvas(document.getElementById('printComponent')).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = this.createPdf(imgData);
-      const formatedDate = this.getDateFormated();
-      const saveTitle = this.getSaveTitle(formatedDate);
-      pdf.save(saveTitle);
-      this.setState({ ...this.state, loading: false });
-    });
+    if (process.browser) {
+      html2canvas(document.getElementById('printComponent')).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = this.createPdf(imgData);
+        const formatedDate = this.getDateFormated();
+        const saveTitle = this.getSaveTitle(formatedDate);
+        pdf.save(saveTitle);
+        this.setState({ ...this.state, loading: false });
+      });
+    }
   }
 
   render() {
