@@ -6,6 +6,8 @@ import makeStore from '../src/store/makeStore';
 
 import WithGtmScript from '../src/components/hoc/WithGtmScript';
 
+import '../static/css/application.scss';
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};

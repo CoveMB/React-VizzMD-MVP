@@ -9,20 +9,20 @@ class BodyMusclesCouple extends Component {
     return (this.props.muscleForce !== nextProps.muscleForce);
   }
 
-  muscleClass = () => {
+  muscleFillColor = () => {
     switch (this.props.muscleForce) {
       case 1:
-        return "one-force";
+        return "#EEF5CF";
       case 2:
-        return "two-force";
+        return "#E7D18B";
       case 3:
-        return "three-force";
+        return "#E0AB69";
       case 4:
-        return "four-force";
+        return "#D65B35";
       case 5:
-        return "five-force";
+        return "#CD000F";
       default:
-        return "zero-force";
+        return "#FFFFFF";
     }
   }
 
@@ -33,7 +33,7 @@ class BodyMusclesCouple extends Component {
 
   render() {
     return (
-      <path id={this.props.muscleId} className={this.muscleClass()} ref={(muscleSVG) => { this.muscleSVG = muscleSVG; }} fill=" #FFFFFF" onClick={this.handleClickMuscle} d={this.props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
+      <path id={this.props.muscleId} fill={this.muscleFillColor()} ref={(muscleSVG) => { this.muscleSVG = muscleSVG; }} onClick={this.handleClickMuscle} d={this.props.muscleSVGPath} stroke="#CD0F0F" strokeWidth="7" />
     );
   }
 }

@@ -9,9 +9,9 @@ class Body extends Component {
 
   bodyParts = () => {
     if (this.props.body === "back") {
-      return <FaceBody svgViewBox={this.props.backBodyViewBox} bodySide="back" />;
+      return <FaceBody svgViewBox="-100 0 1700 2840" svgHeight="900" svgWidth="600" bodySide="back" />;
     }
-    return <FaceBody svgViewBox={this.props.frontBodyViewbox} bodySide="front" />;
+    return <FaceBody svgViewBox="-100 0 1700 2830" svgHeight="900" svgWidth="600" bodySide="front" />;
   }
 
   render() {

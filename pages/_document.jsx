@@ -9,7 +9,6 @@ class MyDocument extends Document {
 
 
   render() {
-    console.log(this.props.initialProps);
     return (
       <Html>
         <Head>

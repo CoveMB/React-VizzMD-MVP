@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 
 import App from '../src/components/App';
 
-import '../static/css/application.scss';
-
 
 const rootPage = () => {
   return (

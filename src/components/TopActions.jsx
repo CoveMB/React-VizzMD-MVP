@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
-import Reset from '../components/Reset';
-import Brand from '../components/Brand';
-import PrintBtn from '../containers/printElements/PrintBtn';
+import Reset from './Reset';
+import Brand from './Brand';
+import PrintNSaveBtn from './printNSaveElements/PrintNSaveBtn';
 import BodySelect from '../containers/body/BodySelect';
 import PatientPopUp from '../containers/PatientPopUp';
 
@@ -13,7 +13,8 @@ const TopActions = () => {
       <PatientPopUp />
       <BodySelect />
       <Reset />
-      <PrintBtn />
+      <PrintNSaveBtn function="print" />
+      <PrintNSaveBtn function="save" />
     </Fragment>
   );
 };

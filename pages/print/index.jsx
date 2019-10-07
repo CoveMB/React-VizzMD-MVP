@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from "react-redux";
 
-import ComponentToPrint from '../../src/containers/printElements/ComponentToPrint';
+import Recap from '../../src/components/Recap';
+import PrintNSavePopUp from '../../src/components/printNSaveElements/PrintNSavePopUp';
 
 
-const printPage = () => {
-  return (
-    <ComponentToPrint />
-  );
-};
+class printPage extends Component {
+  componentDidMount() {
+    window.print();
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <PrintNSavePopUp gradientText="Printing.." />
+        <Recap />
+      </Fragment>
+    );
+  }
+}
 
 export default connect(state => state)(printPage);

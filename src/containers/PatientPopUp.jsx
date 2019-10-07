@@ -21,21 +21,21 @@ class PatientPopUp extends PureComponent {
   }
 
   openModal = () => {
-    this.setState({ open: true });
+    this.setState({ ...this.state, open: true });
   }
 
   closeModal = () => {
-    this.setState({ open: false });
+    this.setState({ ...this.state, open: false });
   }
 
   handleChange = (event) => {
-    this.setState({ patient: event.target.value });
+    this.setState({ ...this.state, patient: event.target.value });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.enterPatient(this.state.patient);
-    this.setState({ patient: "", open: false });
+    this.setState({ ...this.state, patient: "", open: false });
   }
 
   focusInput = () => {
