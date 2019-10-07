@@ -1,17 +1,14 @@
 import React, { Fragment, Component } from 'react';
 import Popup from "reactjs-popup";
 import { connect } from 'react-redux';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import Router from 'next/router';
 import HomeBtn from '../../components/HomeBtn';
 import BrandWhite from '../../components/BrandWhite';
 import TypeFormBtn from '../TypeFormBtn';
 import Spinner from '../Spinner';
 
-import html2canvas from 'html2canvas';
-// if (typeof window !== 'undefined') { require('html2canvas'); }
-// const html2canvas = dynamic(import('html2canvas'), { ssr: false });
-
+// import html2canvas from 'html2canvas';
 
 let JsPDF = null;
 if (typeof window !== "undefined") {
@@ -19,6 +16,18 @@ if (typeof window !== "undefined") {
     JsPDF = module.default;
   });
 }
+// if (typeof window !== 'undefined') { require('html2canvas'); }
+// const html2canvas = dynamic(import('html2canvas'), { ssr: false });
+// let html2canvas = null;
+
+
+// if (typeof window !== "undefined") {
+//   import("html2canvas").then((module) => {
+//     console.log(module);
+//     html2canvas = module.default;
+//     console.log(html2canvas);
+//   });
+// }
 
 const backHome = () => {
   Router.push("/");
@@ -59,14 +68,26 @@ class PrintNSavePopUp extends Component {
   generatePdf = () => {
     if (process.browser) {
       this.setState({ ...this.state, loading: true });
-      html2canvas(document.getElementById('printComponent')).then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = this.createPdf(imgData);
-        const formatedDate = this.getDateFormated();
-        const saveTitle = this.getSaveTitle(formatedDate);
-        pdf.save(saveTitle);
-        this.setState({ ...this.state, loading: false });
-      });
+      if (typeof window !== "undefined") {
+        import("html2canvas").then((module) => {
+          module.default(document.getElementById('printComponent')).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = this.createPdf(imgData);
+            const formatedDate = this.getDateFormated();
+            const saveTitle = this.getSaveTitle(formatedDate);
+            pdf.save(saveTitle);
+            this.setState({ ...this.state, loading: false });
+          });
+        });
+      }
+      // html2canvas(document.getElementById('printComponent')).then((canvas) => {
+      //   const imgData = canvas.toDataURL('image/png');
+      //   const pdf = this.createPdf(imgData);
+      //   const formatedDate = this.getDateFormated();
+      //   const saveTitle = this.getSaveTitle(formatedDate);
+      //   pdf.save(saveTitle);
+      //   this.setState({ ...this.state, loading: false });
+      // });
     }
   }
 
